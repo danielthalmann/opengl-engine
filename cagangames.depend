@@ -196,3 +196,10 @@
 	"begin_code.h"
 	"close_code.h"
 
+1515064590 source:c:\projets\cagangames\main.cpp
+	<cstdlib>
+	<stdlib.h>
+	<SDL/SDL.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
