@@ -3,11 +3,15 @@
 #else
     #include <stdlib.h>
 #endif
+
 #include <SDL/SDL.h>
-
 #include <GL/gl.h>
-
 #include <GL/glu.h>
+
+#include "Message.h"
+#include "MessageBus.h"
+#include "Console.h"
+
 
 void Dessiner();
 
@@ -18,8 +22,11 @@ double angleX = 0;
 
 
 int main(int argc, char *argv[])
-
 {
+freopen( "CON", "w", stdout );
+freopen( "CON", "w", stderr );
+    MessageBus* messageBus = new MessageBus();
+    Console* console = new Console(messageBus);
 
     SDL_Event event;
 
@@ -92,6 +99,10 @@ int main(int argc, char *argv[])
 
 
         Dessiner();
+
+        messageBus->sendMessage(new Message("salut"));
+
+        messageBus->notify();
 
 
         ellapsed_time = SDL_GetTicks() - last_time;
