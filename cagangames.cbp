@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -22,6 +23,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -49,7 +51,8 @@
 		</ExtraCommands>
 		<Unit filename="Console.cpp" />
 		<Unit filename="Console.h" />
-		<Unit filename="IMessageReceiver.h" />
+		<Unit filename="Context.cpp" />
+		<Unit filename="Context.h" />
 		<Unit filename="Message.cpp" />
 		<Unit filename="Message.h" />
 		<Unit filename="MessageBus.cpp" />

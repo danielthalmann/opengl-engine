@@ -1,13 +1,14 @@
 #ifdef __cplusplus
-    #include <cstdlib>
+#include <cstdlib>
 #else
-    #include <stdlib.h>
+#include <stdlib.h>
 #endif
 
 #include <SDL/SDL.h>
 #include <GL/gl.h>
 #include <GL/glu.h>
 
+#include "Context.h"
 #include "Message.h"
 #include "MessageBus.h"
 #include "Console.h"
@@ -23,12 +24,13 @@ double angleX = 0;
 
 int main(int argc, char *argv[])
 {
-freopen( "CON", "w", stdout );
-freopen( "CON", "w", stderr );
-    MessageBus* messageBus = new MessageBus();
-    Console* console = new Console(messageBus);
+    freopen( "CON", "w", stdout );
+    freopen( "CON", "w", stderr );
 
-    SDL_Event event;
+    Cagan::Context* c = new Cagan::Context();
+
+    Cagan::MessageBus* messageBus = new Cagan::MessageBus();
+    Cagan::Console* console = new Cagan::Console(messageBus);
 
 
     SDL_Init(SDL_INIT_VIDEO);
@@ -66,24 +68,7 @@ freopen( "CON", "w", stderr );
 
         start_time = SDL_GetTicks();
 
-        while (SDL_PollEvent(&event))
 
-        {
-
-
-            switch(event.type)
-
-            {
-
-                case SDL_QUIT:
-
-                exit(0);
-
-                break;
-
-            }
-
-        }
 
 
         current_time = SDL_GetTicks();
@@ -99,8 +84,6 @@ freopen( "CON", "w", stderr );
 
 
         Dessiner();
-
-        messageBus->sendMessage(new Message("salut"));
 
         messageBus->notify();
 

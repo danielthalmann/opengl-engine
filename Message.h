@@ -3,17 +3,28 @@
 
 #include <string>
 
-class Message
+namespace Cagan
 {
-    public:
-        Message(const std::string event);
-        virtual ~Message();
-        std::string getEvent();
+	enum EventType {
+		MOUSEMOTION,
+		KEYDOWN,
+		KEYUP,
+		MOUSEBUTTONDOWN,
+		MOUSEBUTTONUP
+	};
 
-    protected:
+	class Message
+	{
+		public:
+			Message(EventType event);
+			virtual ~Message();
+			EventType getEvent();
 
-    private:
-        std::string messageEvent;
-};
+		protected:
+
+		private:
+			EventType m_event;
+	};
+}
 
 #endif // MESSAGE_H

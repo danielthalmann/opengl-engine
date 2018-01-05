@@ -5,51 +5,56 @@
 #include <queue>
 #include <vector>
 
-#include "MessageBus.h"
+#include <SDL/SDL.h>
+
 #include "Message.h"
 
-
-class IMessageReceiver;
-
-class MessageBus
+namespace Cagan
 {
-    public:
-        MessageBus();
-        virtual ~MessageBus();
-        void addReceiver(IMessageReceiver* messageReceiver);
-        void sendMessage(Message* message);
-        void notify();
 
-    protected:
+	class IMessageReceiver;
 
-    private:
-        std::vector<IMessageReceiver*> receivers;
-        std::queue<Message*> messages;
-};
+	class MessageBus
+	{
+		public:
+			MessageBus();
+			virtual ~MessageBus();
+			void addReceiver(IMessageReceiver* messageReceiver);
+			void sendMessage(Message* message);
+			void notify();
 
-// Base class
-class IMessageReceiver
-{
-   public:
+		protected:
 
-      virtual void handleMessage(Message* message) = 0;
+		private:
+			std::vector<IMessageReceiver*> receivers;
+			std::queue<Message*> messages;
+	};
 
-   protected:
-      IMessageReceiver(MessageBus* messageBus)
-      {
-          m_messageBus = messageBus;
-          m_messageBus->addReceiver(this);
-      }
+	// Base class
+	class IMessageReceiver
+	{
+	   public:
 
-      void sendMessage(Message* message)
-      {
-          m_messageBus->sendMessage(message);
-      }
+		  virtual void handleMessage(Message* message) = 0;
 
-   private:
+	   protected:
+		  IMessageReceiver(MessageBus* messageBus)
+		  {
+			  m_messageBus = messageBus;
+			  m_messageBus->addReceiver(this);
+		  }
 
-    MessageBus* m_messageBus;
+		  void sendMessage(Message* message)
+		  {
+			  m_messageBus->sendMessage(message);
+		  }
+
+	   private:
+
+		MessageBus* m_messageBus;
 
 
-};
+	};
+
+}
 #endif // MESSAGEBUS_H

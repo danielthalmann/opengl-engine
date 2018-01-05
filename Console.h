@@ -3,18 +3,21 @@
 
 #include "MessageBus.h"
 
-
-class Console : public IMessageReceiver
+namespace Cagan
 {
-    public:
-        Console(MessageBus* messageBus);
-        virtual ~Console();
 
-        void handleMessage(Message* message);
+	class Console : public IMessageReceiver
+	{
+		public:
+			Console(MessageBus* messageBus);
+			virtual ~Console();
 
-    protected:
+			void handleMessage(Message* message);
 
-    private:
-};
+		protected:
 
+		private:
+	};
+
+}
 #endif // CONSOLE_H

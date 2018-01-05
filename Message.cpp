@@ -1,13 +1,15 @@
 #include "Message.h"
 
-Message::Message(const std::string event)
+using namespace Cagan;
+
+Message::Message(EventType event)
 {
-    messageEvent = event;
+    m_event = event;
 }
 
-std::string Message::getEvent()
+EventType Message::getEvent()
 {
-    return messageEvent;
+    return m_event;
 }
 Message::~Message()
 {
