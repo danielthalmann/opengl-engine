@@ -1,13 +1,13 @@
-#include "Ground.h"
+#include "Scene.h"
 
 using namespace Cagan;
 
-Ground::Ground()
+Scene::Scene()
 {
     //ctor
 }
 
-Ground::~Ground()
+Scene::~Scene()
 {
     //dtor
 }
