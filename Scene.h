@@ -2,15 +2,18 @@
 #define SCENE_H
 
 
-class Scene
+namespace Cagan
 {
-    public:
-        Scene();
-        virtual ~Scene();
 
-    protected:
+    class Scene
+    {
+        public:
+            Scene();
+            virtual ~Scene();
 
-    private:
-};
+        protected:
 
+        private:
+    };
+}
 #endif // SCENE_H

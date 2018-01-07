@@ -2,20 +2,24 @@
 #define GROUND_H
 
 
-class Ground
+namespace Cagan
 {
-    public:
-        Ground();
-        virtual ~Ground();
-        void setSummitHeight(float x, float y, float height);
+
+    class Ground
+    {
+        public:
+            Ground(int x, int y);
+            virtual ~Ground();
+            void setSummitHeight(int x, int y, float height);
 
 
-    protected:
-        float ** m_summits;
-        int m_width;
-        int m_height;
+        protected:
+            float ** m_summits;
+            int m_width;
+            int m_height;
 
-    private:
-};
+        private:
+    };
+}
 
 #endif // GROUND_H
