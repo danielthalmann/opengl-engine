@@ -12,6 +12,7 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
+					<Add option="-std=c++14" />
 					<Add option="-g" />
 					<Add directory="include" />
 				</Compiler>
@@ -47,12 +48,14 @@
 			<Add directory="SDL-1.2.15/lib" />
 		</Linker>
 		<ExtraCommands>
-			<Add before='cmd /c copy &quot;$(PROJECT_DIR)SDL-1.2.15\bin\*.dll&quot; &quot;$(PROJECT_DIR)$(TARGET_OUTPUT_DIR)&quot;' />
+			<Add after='cmd /c copy &quot;$(PROJECT_DIR)SDL-1.2.15\bin\*.dll&quot; &quot;$(PROJECT_DIR)$(TARGET_OUTPUT_DIR)&quot;' />
 		</ExtraCommands>
 		<Unit filename="Console.cpp" />
 		<Unit filename="Console.h" />
 		<Unit filename="Context.cpp" />
 		<Unit filename="Context.h" />
+		<Unit filename="Ground.cpp" />
+		<Unit filename="Ground.h" />
 		<Unit filename="Message.cpp" />
 		<Unit filename="Message.h" />
 		<Unit filename="MessageBus.cpp" />
