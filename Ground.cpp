@@ -14,7 +14,7 @@ Ground::~Ground()
     //dtor
 }
 
-Ground::setSummitHeight(int x, int y, float height)
+void Ground::setSummitHeight(int x, int y, float height)
 {
 
 }
