@@ -6,7 +6,17 @@ Ground::Ground(int x, int y)
 {
     m_width = x;
     m_height = y;
-    //ctor
+
+    /* Allocation dynamique */
+    m_summits = new float* [ m_height ];
+    for (int i=0; i < m_height; i++)
+        t[i] = new float[ m_width ];
+
+    /* Initialisation */
+    for (int i=0; i < m_height; i++)
+        for (int j=0; j < m_width; j++)
+            m_summits[i][j] = 0.0;
+
 }
 
 Ground::~Ground()

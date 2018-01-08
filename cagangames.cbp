@@ -60,6 +60,8 @@
 		<Unit filename="Message.h" />
 		<Unit filename="MessageBus.cpp" />
 		<Unit filename="MessageBus.h" />
+		<Unit filename="Scene.cpp" />
+		<Unit filename="Scene.h" />
 		<Unit filename="cb.bmp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
