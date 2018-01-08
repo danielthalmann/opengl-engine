@@ -12,6 +12,8 @@
 #include "Message.h"
 #include "MessageBus.h"
 #include "Console.h"
+#include "Ground.h"
+
 
 
 void Dessiner();
@@ -32,6 +34,7 @@ int main(int argc, char *argv[])
     Cagan::MessageBus* messageBus = new Cagan::MessageBus();
     Cagan::Console* console = new Cagan::Console(messageBus);
 
+    Cagan::Ground* ground = new Cagan::Ground(30, 30);
 
     SDL_Init(SDL_INIT_VIDEO);
 
@@ -78,14 +81,38 @@ int main(int argc, char *argv[])
         last_time = current_time;
 
 
+
         angleZ += 0.05 * ellapsed_time;
 
         angleX += 0.05 * ellapsed_time;
 
 
+        glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
+
+
+        glMatrixMode( GL_MODELVIEW );
+
+        glLoadIdentity( );
+
+
+        gluLookAt(3,4,2,0,0,0,0,0,1);
+
+
+
         Dessiner();
 
+        glLoadIdentity( );
+        gluLookAt(3,4,2,0,0,0,0,0,1);
+
+        ground->draw();
+
+
         messageBus->notify();
+
+
+        glFlush();
+
+        SDL_GL_SwapBuffers();
 
 
         ellapsed_time = SDL_GetTicks() - last_time;
@@ -110,16 +137,6 @@ int main(int argc, char *argv[])
 void Dessiner()
 
 {
-
-    glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
-
-
-    glMatrixMode( GL_MODELVIEW );
-
-    glLoadIdentity( );
-
-
-    gluLookAt(3,4,2,0,0,0,0,0,1);
 
 
     glRotated(angleZ,0,0,1);
@@ -199,8 +216,5 @@ void Dessiner()
     glEnd();
 
 
-    glFlush();
-
-    SDL_GL_SwapBuffers();
 
 }
