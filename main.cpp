@@ -36,6 +36,16 @@ int main(int argc, char *argv[])
 
     Cagan::Ground* ground = new Cagan::Ground(30, 30);
 
+    ground->setSummitHeight(1,1, 20);
+    ground->setSummitHeight(1,2, 30);
+
+    ground->setSummitHeight(28,2, 10);
+    ground->setSummitHeight(2,28, 30);
+
+    ground->setSummitHeight(28,28, 20);
+    ground->setSummitHeight(28,29, 30);
+
+
     SDL_Init(SDL_INIT_VIDEO);
 
     atexit(SDL_Quit);

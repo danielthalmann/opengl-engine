@@ -35,7 +35,7 @@ Ground::~Ground()
  */
 void Ground::setSummitHeight(int x, int y, float height)
 {
-
+    m_summits[x][y] = height;
 }
 
 
@@ -48,11 +48,12 @@ void Ground::draw()
 {
 
     glBegin(GL_QUADS);
-    glColor3ub(0,255,0); //face verte
+
 
     /* Initialisation */
     for (int i=0; i < m_height- 1; i++)
         for (int j=0; j < m_width - 1; j++){
+                glColor3ub(0,255,(int)m_summits[i][j]); //face verte
             glVertex3d(j  ,i  ,m_summits[i][j]);
             glVertex3d(j+1,i  ,m_summits[i][j]);
             glVertex3d(j+1,i+1,m_summits[i][j]);
