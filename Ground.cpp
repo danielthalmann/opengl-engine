@@ -1,4 +1,5 @@
 #include "Ground.h"
+#include <iostream>
 
 using namespace Cagan;
 
@@ -21,6 +22,7 @@ Ground::Ground(int x, int y)
 
 Ground::~Ground()
 {
+    m_info = false;
     //dtor
 }
 
@@ -46,20 +48,39 @@ void Ground::setSummitHeight(int x, int y, float height)
  */
 void Ground::draw()
 {
+    //glPolygonMode(GL_FRONT, GL_LINE);
+    //glPolygonMode(GL_BACK, GL_LINE);
 
-    glBegin(GL_QUADS);
+    glBegin(GL_TRIANGLES);
 
 
     /* Initialisation */
-    for (int i=0; i < m_height- 1; i++)
+    for (int i=0; i < m_height- 1; i++){
+
         for (int j=0; j < m_width - 1; j++){
-                glColor3ub(0,255,(int)m_summits[i][j]); //face verte
+                if(!m_info){
+                    std::cout << j << ",";
+                    std::cout << i  << ",";
+                    std::cout << m_summits[i][j];
+                    std::cout << "\n";
+                }
+//             glColor3ub(0,255,(int)m_summits[i][j]); //face verte
+
             glVertex3d(j  ,i  ,m_summits[i][j]);
-            glVertex3d(j+1,i  ,m_summits[i][j]);
-            glVertex3d(j+1,i+1,m_summits[i][j]);
-            glVertex3d(j  ,i+1,m_summits[i][j]);
+            glVertex3d(j+1,i  ,m_summits[i][j+1]);
+            glVertex3d(j+1,i+1,m_summits[i+1][j+1]);
+
+            glVertex3d(j  ,i  ,m_summits[i][j]);
+            glVertex3d(j+1,i+1,m_summits[i+1][j+1]);
+            glVertex3d(j  ,i+1,m_summits[i+1][j]);
         }
+    }
+    m_info = true;
 
     glEnd();
+
+    // Turn off wireframe mode
+    //glPolygonMode(GL_FRONT, GL_FILL);
+    //glPolygonMode(GL_BACK, GL_FILL);
 
 }

@@ -21,6 +21,7 @@ namespace Cagan
             float ** m_summits;
             int m_width;
             int m_height;
+            bool m_info;
 
         private:
     };
