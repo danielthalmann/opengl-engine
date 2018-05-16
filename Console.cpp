@@ -17,7 +17,7 @@ void Console::handleMessage(Message* message)
     switch(message->getEvent())
     {
 		case EventType::MOUSEMOTION:
-			std::cout << "MOUSEMOTION";
+			std::cout << "MOUSEMOTION X:" << ((MessageMouse*)message)->getX() << " y:" << ((MessageMouse*)message)->getY();
 			break;
 		case EventType::KEYDOWN:
 			std::cout << "KEYDOWN";
@@ -26,10 +26,10 @@ void Console::handleMessage(Message* message)
 			std::cout << "KEYUP";
 			break;
 		case EventType::MOUSEBUTTONDOWN:
-			std::cout << "MOUSEBUTTONDOWN";
+		    std::cout << "MOUSEBUTTONDOWN X:" << ((MessageMouse*)message)->getX() << " y:" << ((MessageMouse*)message)->getY() << " Button:" << ((MessageMouse*)message)->getButton();
 			break;
 		case EventType::MOUSEBUTTONUP:
-			std::cout << "MOUSEBUTTONUP";
+		    std::cout << "MOUSEBUTTONUP X:" << ((MessageMouse*)message)->getX() << " y:" << ((MessageMouse*)message)->getY() << " Button:" << ((MessageMouse*)message)->getButton();
 			break;
     };
 

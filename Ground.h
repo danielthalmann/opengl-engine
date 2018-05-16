@@ -15,6 +15,7 @@ namespace Cagan
             virtual ~Ground();
             void setSummitHeight(int x, int y, float height);
             void draw();
+            void update(float ellapsed_time);
 
 
         protected:
@@ -22,6 +23,8 @@ namespace Cagan
             int m_width;
             int m_height;
             bool m_info;
+            float m_time;
+            bool m_wireframe;
 
         private:
     };

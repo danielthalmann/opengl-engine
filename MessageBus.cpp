@@ -36,15 +36,15 @@ void MessageBus::notify()
 		{
 
 		case SDL_MOUSEBUTTONDOWN:
-			this->sendMessage(new Cagan::Message(Cagan::EventType::MOUSEBUTTONDOWN));
+			this->sendMessage(new Cagan::MessageMouse(Cagan::EventType::MOUSEBUTTONDOWN, event.motion.x, event.motion.y, event.button.button));
 			break;
 
 		case SDL_MOUSEBUTTONUP:
-			this->sendMessage(new Cagan::Message(Cagan::EventType::MOUSEBUTTONUP));
+			this->sendMessage(new Cagan::MessageMouse(Cagan::EventType::MOUSEBUTTONUP, event.motion.x, event.motion.y, event.button.button));
 			break;
 
 		case SDL_MOUSEMOTION:
-			this->sendMessage(new Cagan::Message(Cagan::EventType::MOUSEMOTION));
+			this->sendMessage(new Cagan::MessageMouse(Cagan::EventType::MOUSEMOTION, event.motion.x, event.motion.y));
 			break;
 
 		case SDL_KEYDOWN:

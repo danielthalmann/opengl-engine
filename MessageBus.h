@@ -8,6 +8,7 @@
 #include <SDL/SDL.h>
 
 #include "Message.h"
+#include "MessageMouse.h"
 
 namespace Cagan
 {

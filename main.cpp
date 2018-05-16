@@ -9,10 +9,10 @@
 #include <GL/glu.h>
 
 #include "Context.h"
-#include "Message.h"
 #include "MessageBus.h"
 #include "Console.h"
 #include "Ground.h"
+#include "Clock.h"
 
 
 
@@ -30,14 +30,13 @@ int main(int argc, char *argv[])
     freopen( "CON", "w", stderr );
 
     Cagan::Context* c = new Cagan::Context();
-
     Cagan::MessageBus* messageBus = new Cagan::MessageBus();
     Cagan::Console* console = new Cagan::Console(messageBus);
-
     Cagan::Ground* ground = new Cagan::Ground(30, 30);
+    Cagan::Clock* clock = new Cagan::Clock();
 
-    ground->setSummitHeight(1, 1, 2.0);
-    ground->setSummitHeight(1,2, 3);
+//    ground->setSummitHeight(1, 1, 1.5);
+//    ground->setSummitHeight(1, 2, 2);
 
 
 
@@ -47,7 +46,7 @@ int main(int argc, char *argv[])
 
     SDL_WM_SetCaption("SDL GL Application", NULL);
 
-    SDL_SetVideoMode(640, 480, 32, SDL_OPENGL);
+    SDL_SetVideoMode(800, 600, 32, SDL_OPENGL);
 
 
     glMatrixMode( GL_PROJECTION );
@@ -60,36 +59,19 @@ int main(int argc, char *argv[])
     glEnable(GL_DEPTH_TEST);
 
 
-    Dessiner();
+   // Dessiner();
 
-
-    Uint32 last_time = SDL_GetTicks();
-
-    Uint32 current_time,ellapsed_time;
-
-    Uint32 start_time;
-
+    unsigned int ellapsed_time = clock->getEllapsed();
 
     for (;;)
 
     {
 
-        start_time = SDL_GetTicks();
-
-
-
-
-        current_time = SDL_GetTicks();
-
-        ellapsed_time = current_time - last_time;
-
-        last_time = current_time;
-
-
-
         angleZ += 0.05 * ellapsed_time;
 
         angleX += 0.05 * ellapsed_time;
+
+        ground->update(ellapsed_time);
 
 
         glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
@@ -120,7 +102,7 @@ int main(int argc, char *argv[])
         SDL_GL_SwapBuffers();
 
 
-        ellapsed_time = SDL_GetTicks() - last_time;
+        ellapsed_time = clock->getEllapsed();
 
         if (ellapsed_time < 16)
 

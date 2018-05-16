@@ -673,21 +673,22 @@
 	<GL/gl.h>
 	<GL/glu.h>
 
-1515596638 source:d:\projets\cagangames\console.cpp
+1526503752 source:d:\projets\cagangames\console.cpp
 	<iostream>
 	"Console.h"
 
-1515596638 d:\projets\cagangames\console.h
+1515600238 d:\projets\cagangames\console.h
 	"MessageBus.h"
 
-1515596638 d:\projets\cagangames\messagebus.h
+1526502505 d:\projets\cagangames\messagebus.h
 	<functional>
 	<queue>
 	<vector>
 	<SDL/SDL.h>
 	"Message.h"
+	"MessageMouse.h"
 
-1515596639 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl.h
+1515600239 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl.h
 	"SDL_main.h"
 	"SDL_stdinc.h"
 	"SDL_audio.h"
@@ -706,14 +707,14 @@
 	"begin_code.h"
 	"close_code.h"
 
-1515596639 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_main.h
+1515600239 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_main.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 	"begin_code.h"
 	"close_code.h"
 
-1515596639 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_stdinc.h
+1515600239 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_stdinc.h
 	"SDL_config.h"
 	<sys/types.h>
 	<stdio.h>
@@ -739,7 +740,7 @@
 	<stdlib.h>
 	"close_code.h"
 
-1515596639 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_config.h
+1515600239 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_config.h
 	"SDL_platform.h"
 	"SDL_config_dreamcast.h"
 	"SDL_config_macos.h"
@@ -749,16 +750,16 @@
 	"SDL_config_os2.h"
 	"SDL_config_minimal.h"
 
-1515596639 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_platform.h
+1515600239 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_platform.h
 
-1515596639 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_config_win32.h
+1515600239 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_config_win32.h
 	"SDL_platform.h"
 
-1515596639 d:\projets\cagangames\sdl-1.2.15\include\sdl\begin_code.h
+1515600239 d:\projets\cagangames\sdl-1.2.15\include\sdl\begin_code.h
 
-1515596639 d:\projets\cagangames\sdl-1.2.15\include\sdl\close_code.h
+1515600239 d:\projets\cagangames\sdl-1.2.15\include\sdl\close_code.h
 
-1515596639 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_audio.h
+1515600239 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_audio.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_endian.h"
@@ -768,24 +769,24 @@
 	"begin_code.h"
 	"close_code.h"
 
-1515596639 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_error.h
+1515600239 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_error.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1515596639 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_endian.h
+1515600239 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_endian.h
 	"SDL_stdinc.h"
 	<endian.h>
 	"begin_code.h"
 	"close_code.h"
 
-1515596639 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_mutex.h
+1515600239 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_mutex.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1515596639 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_thread.h
+1515600239 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_thread.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_mutex.h"
@@ -793,24 +794,24 @@
 	<process.h>
 	"close_code.h"
 
-1515596639 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_rwops.h
+1515600239 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_rwops.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1515596639 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_cdrom.h
+1515600239 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_cdrom.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1515596639 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_cpuinfo.h
+1515600239 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_cpuinfo.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1515596639 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_events.h
+1515600239 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_events.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_active.h"
@@ -821,97 +822,111 @@
 	"begin_code.h"
 	"close_code.h"
 
-1515596639 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_active.h
+1515600239 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_active.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1515596639 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_keyboard.h
+1515600239 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_keyboard.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_keysym.h"
 	"begin_code.h"
 	"close_code.h"
 
-1515596639 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_keysym.h
+1515600239 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_keysym.h
 
-1515596639 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_mouse.h
+1515600239 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_mouse.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1515596639 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_video.h
+1515600239 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_video.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_rwops.h"
 	"begin_code.h"
 	"close_code.h"
 
-1515596639 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_joystick.h
+1515600239 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_joystick.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1515596639 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_quit.h
+1515600239 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_quit.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 
-1515596639 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_loadso.h
-	"SDL_stdinc.h"
-	"SDL_error.h"
-	"begin_code.h"
-	"close_code.h"
-
-1515596639 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_timer.h
+1515600239 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_loadso.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1515596639 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_version.h
+1515600239 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1515600239 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_version.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1515596638 d:\projets\cagangames\message.h
+1515600238 d:\projets\cagangames\message.h
 	<string>
 
-1515596638 source:d:\projets\cagangames\context.cpp
+1515600238 source:d:\projets\cagangames\context.cpp
 	"Context.h"
 
-1515596638 d:\projets\cagangames\context.h
+1515600238 d:\projets\cagangames\context.h
 
-1515596638 source:d:\projets\cagangames\message.cpp
+1515600238 source:d:\projets\cagangames\message.cpp
 	"Message.h"
 
-1515596638 source:d:\projets\cagangames\messagebus.cpp
+1526503709 source:d:\projets\cagangames\messagebus.cpp
 	"MessageBus.h"
 
-1515596640 source:d:\projets\cagangames\scene.cpp
+1515600240 source:d:\projets\cagangames\scene.cpp
 	"Scene.h"
 
-1515596640 d:\projets\cagangames\scene.h
+1515600240 d:\projets\cagangames\scene.h
 
-1515597543 source:d:\projets\cagangames\main.cpp
+1526504947 source:d:\projets\cagangames\main.cpp
 	<cstdlib>
 	<stdlib.h>
 	<SDL/SDL.h>
 	<GL/gl.h>
 	<GL/glu.h>
 	"Context.h"
-	"Message.h"
 	"MessageBus.h"
 	"Console.h"
 	"Ground.h"
+	"Clock.h"
 
-1515596638 d:\projets\cagangames\ground.h
+1526461691 d:\projets\cagangames\ground.h
 	<GL/gl.h>
 	<GL/glu.h>
 
-1515597576 source:d:\projets\cagangames\ground.cpp
+1526461730 source:d:\projets\cagangames\ground.cpp
 	"Ground.h"
+	<iostream>
+	<math.h>
+
+1526503802 source:d:\projets\cagangames\messagemouse.cpp
+	"MessageMouse.h"
+
+1526503806 d:\projets\cagangames\messagemouse.h
+	"Message.h"
+
+1526504788 source:d:\projets\cagangames\clock.cpp
+	"Clock.h"
+
+1526504803 d:\projets\cagangames\clock.h
+	<SDL/SDL.h>
 
