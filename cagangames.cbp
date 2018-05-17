@@ -15,6 +15,7 @@
 					<Add option="-std=c++11" />
 					<Add option="-g" />
 					<Add directory="include" />
+					<Add directory="../cagangames" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -26,6 +27,7 @@
 					<Add option="-O2" />
 					<Add option="-std=c++11" />
 					<Add directory="include" />
+					<Add directory="../cagangames" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -51,12 +53,13 @@
 		<ExtraCommands>
 			<Add after='cmd /c copy &quot;$(PROJECT_DIR)SDL-1.2.15\bin\*.dll&quot; &quot;$(PROJECT_DIR)$(TARGET_OUTPUT_DIR)&quot;' />
 		</ExtraCommands>
-		<Unit filename="Clock.cpp" />
 		<Unit filename="Clock.h" />
 		<Unit filename="Console.cpp" />
 		<Unit filename="Console.h" />
 		<Unit filename="Context.cpp" />
 		<Unit filename="Context.h" />
+		<Unit filename="Cube.cpp" />
+		<Unit filename="Cube.h" />
 		<Unit filename="Ground.cpp" />
 		<Unit filename="Ground.h" />
 		<Unit filename="Message.cpp" />
@@ -65,9 +68,12 @@
 		<Unit filename="MessageBus.h" />
 		<Unit filename="MessageMouse.cpp" />
 		<Unit filename="MessageMouse.h" />
+		<Unit filename="Object.cpp" />
+		<Unit filename="Object.h" />
 		<Unit filename="Scene.cpp" />
 		<Unit filename="Scene.h" />
 		<Unit filename="cb.bmp" />
+		<Unit filename="clock.cpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

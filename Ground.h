@@ -4,18 +4,19 @@
 #include <GL/gl.h>
 #include <GL/glu.h>
 
+#include "Object.h"
 
 namespace Cagan
 {
 
-    class Ground
+    class Ground: public Object
     {
         public:
             Ground(int x, int y);
             virtual ~Ground();
             void setSummitHeight(int x, int y, float height);
             void draw();
-            void update(float ellapsed_time);
+            void update(unsigned int ellapsed_time);
 
 
         protected:

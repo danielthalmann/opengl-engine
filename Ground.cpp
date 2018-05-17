@@ -4,7 +4,7 @@
 
 using namespace Cagan;
 
-Ground::Ground(int x, int y)
+Ground::Ground(int x, int y) : Object()
 {
     m_time = 0;
     m_width = x;
@@ -96,7 +96,7 @@ void Ground::draw()
 
 }
 
-void Ground::update(float ellapsed_time)
+void Ground::update(unsigned int ellapsed_time)
 {
         /* Initialisation */
         for (int i=0; i < m_height; i++)

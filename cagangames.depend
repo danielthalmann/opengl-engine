@@ -892,12 +892,17 @@
 1526503709 source:d:\projets\cagangames\messagebus.cpp
 	"MessageBus.h"
 
-1515600240 source:d:\projets\cagangames\scene.cpp
+1526586781 source:d:\projets\cagangames\scene.cpp
 	"Scene.h"
 
-1515600240 d:\projets\cagangames\scene.h
+1526586545 d:\projets\cagangames\scene.h
+	<SDL/SDL.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<vector>
+	"Object.h"
 
-1526504947 source:d:\projets\cagangames\main.cpp
+1526587727 source:d:\projets\cagangames\main.cpp
 	<cstdlib>
 	<stdlib.h>
 	<SDL/SDL.h>
@@ -908,12 +913,15 @@
 	"Console.h"
 	"Ground.h"
 	"Clock.h"
+	"Scene.h"
+	"Cube.h"
 
-1526461691 d:\projets\cagangames\ground.h
+1526586697 d:\projets\cagangames\ground.h
 	<GL/gl.h>
 	<GL/glu.h>
+	"Object.h"
 
-1526461730 source:d:\projets\cagangames\ground.cpp
+1526586680 source:d:\projets\cagangames\ground.cpp
 	"Ground.h"
 	<iostream>
 	<math.h>
@@ -929,4 +937,17 @@
 
 1526504803 d:\projets\cagangames\clock.h
 	<SDL/SDL.h>
+
+1526587258 d:\projets\cagangames\object.h
+
+1526585143 source:d:\projets\cagangames\object.cpp
+	"object.h"
+
+1526587709 source:d:\projets\cagangames\cube.cpp
+	"Cube.h"
+
+1526587695 d:\projets\cagangames\cube.h
+	<GL/gl.h>
+	<GL/glu.h>
+	<Object.h>
 
