@@ -53,6 +53,8 @@
 		<ExtraCommands>
 			<Add after='cmd /c copy &quot;$(PROJECT_DIR)SDL-1.2.15\bin\*.dll&quot; &quot;$(PROJECT_DIR)$(TARGET_OUTPUT_DIR)&quot;' />
 		</ExtraCommands>
+		<Unit filename="Camera.cpp" />
+		<Unit filename="Camera.h" />
 		<Unit filename="Clock.h" />
 		<Unit filename="Console.cpp" />
 		<Unit filename="Console.h" />
@@ -75,6 +77,7 @@
 		<Unit filename="cb.bmp" />
 		<Unit filename="clock.cpp" />
 		<Unit filename="main.cpp" />
+		<Unit filename="vector.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
