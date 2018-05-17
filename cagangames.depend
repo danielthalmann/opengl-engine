@@ -892,17 +892,18 @@
 1526503709 source:d:\projets\cagangames\messagebus.cpp
 	"MessageBus.h"
 
-1526587921 source:d:\projets\cagangames\scene.cpp
+1526598281 source:d:\projets\cagangames\scene.cpp
 	"Scene.h"
 
-1526586545 d:\projets\cagangames\scene.h
+1526597225 d:\projets\cagangames\scene.h
 	<SDL/SDL.h>
 	<GL/gl.h>
 	<GL/glu.h>
 	<vector>
 	"Object.h"
+	"Camera.h"
 
-1526587908 source:d:\projets\cagangames\main.cpp
+1526597387 source:d:\projets\cagangames\main.cpp
 	<cstdlib>
 	<stdlib.h>
 	<SDL/SDL.h>
@@ -915,6 +916,7 @@
 	"Clock.h"
 	"Scene.h"
 	"Cube.h"
+	"Camera.h"
 
 1526586697 d:\projets\cagangames\ground.h
 	<GL/gl.h>
@@ -950,4 +952,14 @@
 	<GL/gl.h>
 	<GL/glu.h>
 	<Object.h>
+
+1526597908 d:\projets\cagangames\camera.h
+	"vector.h"
+	"MessageBus.h"
+
+1526595792 d:\projets\cagangames\vector.h
+	<math.h>
+
+1526598492 source:d:\projets\cagangames\camera.cpp
+	"Camera.h"
 

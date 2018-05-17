@@ -4,7 +4,7 @@ using namespace Cagan;
 
 Scene::Scene()
 {
-    //ctor
+    m_camera = NULL;
 }
 
 Scene::~Scene()
@@ -29,7 +29,13 @@ void Scene::draw()
     for (std::vector<Object*>::iterator iter = m_objects.begin(); iter != m_objects.end(); iter++) {
 
         glLoadIdentity( );
-        gluLookAt(3,4,2,0,0,0,0,0,1);
+        if(m_camera == NULL){
+           gluLookAt(3,4,2,0,0,0,0,0,1);
+        }else {
+           float* lookAt = m_camera->getLookAt();
+           gluLookAt(lookAt[0],lookAt[1],lookAt[2],lookAt[3],lookAt[4],lookAt[5],lookAt[6],lookAt[7],lookAt[8]);
+        }
+
 
         (*iter)->draw();
     }
@@ -65,3 +71,9 @@ void Scene::init()
 
     glEnable(GL_DEPTH_TEST);
 }
+
+void Scene::setCamera(Camera* camera)
+{
+    m_camera = camera;
+}
+

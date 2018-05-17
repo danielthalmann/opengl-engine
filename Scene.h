@@ -7,7 +7,9 @@
 
 
 #include <vector>
+
 #include "Object.h"
+#include "Camera.h"
 
 namespace Cagan
 {
@@ -22,10 +24,12 @@ namespace Cagan
 			void draw();
 			void update(unsigned int ellapsed_time);
 			void init();
+			void setCamera(Camera* camera);
 
         protected:
 
             std::vector<Object*> m_objects;
+            Camera* m_camera;
 
 
         private:

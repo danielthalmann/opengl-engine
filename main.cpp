@@ -15,6 +15,7 @@
 #include "Clock.h"
 #include "Scene.h"
 #include "Cube.h"
+#include "Camera.h"
 
 int main(int argc, char *argv[])
 {
@@ -28,6 +29,9 @@ int main(int argc, char *argv[])
     Cagan::Clock* clock = new Cagan::Clock();
     Cagan::Scene* scene = new Cagan::Scene();
     Cagan::Cube* cube = new Cagan::Cube();
+    Cagan::Camera* camera = new Cagan::Camera(messageBus);
+
+    scene->setCamera(camera);
 
     ground->draw();
 
