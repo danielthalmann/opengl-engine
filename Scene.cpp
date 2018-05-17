@@ -33,6 +33,10 @@ void Scene::draw()
 
         (*iter)->draw();
     }
+
+    glFlush();
+    SDL_GL_SwapBuffers();
+
 }
 
 void Scene::update(unsigned int ellapsed_time)

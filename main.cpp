@@ -43,16 +43,12 @@ int main(int argc, char *argv[])
     unsigned int ellapsed_time = clock->getEllapsed();
 
     for (;;)
-
     {
 
         scene->draw();
         scene->update(ellapsed_time);
 
         messageBus->notify();
-
-        glFlush();
-        SDL_GL_SwapBuffers();
 
         ellapsed_time = clock->getEllapsed();
 
