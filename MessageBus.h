@@ -9,6 +9,7 @@
 
 #include "Message.h"
 #include "MessageMouse.h"
+#include "MessageKeyboard.h"
 
 namespace Cagan
 {

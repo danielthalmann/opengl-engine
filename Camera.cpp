@@ -1,12 +1,29 @@
 #include "Camera.h"
 
+
 using namespace Cagan;
+
+const float M_PI = 3.14;
 
 Camera::Camera(MessageBus* messageBus) : IMessageReceiver(messageBus)
 {
-	m_Position = V3f(3.0, 4.0, 2.0);
+	m_Position = V3f(1.0, 1.0, 1.0);
 	m_View =     V3f(0.0, 0.0, 0.0);
 	m_UpVector = V3f(0.0, 0.0, 1.0);
+
+    m_Up = false;
+    m_Down = false;
+    m_Left = false;
+    m_Right = false;
+
+    m_CaptureMouse = false;
+
+    m_speed = 0.005;
+
+    m_phi = 0.0;
+    m_theta = 180.0;
+    orienter(0.0, 0.0);
+
 }
 
 Camera::~Camera()
@@ -14,50 +31,164 @@ Camera::~Camera()
     //dtor
 }
 
-void Camera::handleMessage(Message* message)
+void Camera::update(unsigned int ellapsed_time)
 {
-    switch(message->getEvent())
-    {
-		case EventType::MOUSEMOTION:
-			// std::cout << "MOUSEMOTION X:" << ((MessageMouse*)message)->getX() << " y:" << ((MessageMouse*)message)->getY();
-			break;
-		case EventType::KEYDOWN:
-			MoveCamera(0.02);
-			break;
+    if(m_Up){
+        MoveCamera(m_speed * ellapsed_time);
+    }
+    if(m_Down){
+        MoveCamera(-m_speed * ellapsed_time);
+    }
+    if(m_Left){
+        MoveLateralCamera(-m_speed * ellapsed_time);
+    }
+    if(m_Right){
+        MoveLateralCamera(m_speed * ellapsed_time);
+    }
+    if(m_CaptureMouse){
+
+        V2f rotateAngle = m_mouseStartPos - m_mouseCurrentPos;
+        m_mouseStartPos = m_mouseCurrentPos;
+        if(!rotateAngle.isZero()){
+            // rotateAngle.Normalize();
+            // Camera::SetCameraVision(rotateAngle.x, rotateAngle.y);
+            Camera::orienter(rotateAngle.x, rotateAngle.y);
+        }
 
     }
 }
 
-void Camera::RotateView(float angle, float x, float y, float z)
+
+void Camera::handleMessage(Message* message)
 {
-	V3f NewView;
+    switch(message->getEvent())
+    {
+		case EventType::KEYUP:
+			switch(((MessageKeyboard*)message)->GetKey()){
+                case SDLK_UP:
+                    m_Up = false;
+                    break;
+                case SDLK_DOWN:
+                    m_Down = false;
+                    break;
+                case SDLK_LEFT:
+                    m_Left = false;
+                    break;
+                case SDLK_RIGHT:
+                    m_Right = false;
+                    break;
+			}
+			break;
 
-	// Get the view vector (The direction we are facing)
-	V3f View = m_View - m_Position;
+		case EventType::KEYDOWN:
+			switch(((MessageKeyboard*)message)->GetKey()){
+                case SDLK_UP:
+                    m_Up = true;
+                    break;
+                case SDLK_DOWN:
+                    m_Down = true;
+                    break;
+                case SDLK_LEFT:
+                    m_Left = true;
+                    break;
+                case SDLK_RIGHT:
+                    m_Right = true;
+                    break;
+			}
+			break;
 
-	// Calcul le sinus et le cosinus de l'angle
-	float cosTheta = (float)cos(angle);
-	float sinTheta = (float)sin(angle);
+		case EventType::MOUSEMOTION:
+            if(m_CaptureMouse){
 
-	// Find the new x position for the new rotated point
-	NewView.x  = (cosTheta + (1 - cosTheta) * x * x)		* View.x;
-	NewView.x += ((1 - cosTheta) * x * y - z * sinTheta)	* View.y;
-	NewView.x += ((1 - cosTheta) * x * z + y * sinTheta)	* View.z;
+                m_mouseCurrentPos.x = ((MessageMouse*)message)->getX();
+                m_mouseCurrentPos.y = ((MessageMouse*)message)->getY();
+            }
+			break;
 
-	// Find the new y position for the new rotated point
-	NewView.y  = ((1 - cosTheta) * x * y + z * sinTheta)	* View.x;
-	NewView.y += (cosTheta + (1 - cosTheta) * y * y)		* View.y;
-	NewView.y += ((1 - cosTheta) * y * z - x * sinTheta)	* View.z;
+		case EventType::MOUSEBUTTONDOWN:
+		    if(((MessageMouse*)message)->getButton() == 1){
 
-	// Find the new z position for the new rotated point
-	NewView.z  = ((1 - cosTheta) * x * z - y * sinTheta)	* View.x;
-	NewView.z += ((1 - cosTheta) * y * z + x * sinTheta)	* View.y;
-	NewView.z += (cosTheta + (1 - cosTheta) * z * z)		* View.z;
+                m_mouseStartPos.x = ((MessageMouse*)message)->getX();
+                m_mouseStartPos.y = ((MessageMouse*)message)->getY();
+                m_mouseCurrentPos.x = ((MessageMouse*)message)->getX();
+                m_mouseCurrentPos.y = ((MessageMouse*)message)->getY();
 
-	// Now we just add the newly rotated vector to our position to set
-	// our new rotated view of our camera.
-	m_View = m_Position + NewView;
+                m_CaptureMouse = true;
+		    }
+			break;
+		case EventType::MOUSEBUTTONUP:
+		    if(((MessageMouse*)message)->getButton() == 1){
+                m_CaptureMouse = false;
+		    }
+			break;
+    }
 }
+
+
+void Camera::orienter(float xRel, float yRel)
+{
+    // Récupération des angles
+
+    m_phi += -yRel * 0.5;
+    m_theta += -xRel * 0.5;
+
+
+    // Limitation de l'angle phi
+
+    if(m_phi > 89.0)
+        m_phi = 89.0;
+
+    else if(m_phi < -89.0)
+        m_phi = -89.0;
+
+
+    // Conversion des angles en radian
+
+    float phiRadian = m_phi * M_PI / 180;
+    float thetaRadian = m_theta * M_PI / 180;
+
+    V3f m_orientation;
+
+    // Si l'axe vertical est l'axe X
+
+    if(m_UpVector.x == 1.0)
+    {
+        // Calcul des coordonnées sphériques
+
+        m_orientation.x = sin(phiRadian);
+        m_orientation.y = cos(phiRadian) * cos(thetaRadian);
+        m_orientation.z = cos(phiRadian) * sin(thetaRadian);
+    }
+
+
+    // Si c'est l'axe Y
+
+    else if(m_UpVector.y == 1.0)
+    {
+        // Calcul des coordonnées sphériques
+
+        m_orientation.x = cos(phiRadian) * sin(thetaRadian);
+        m_orientation.y = sin(phiRadian);
+        m_orientation.z = cos(phiRadian) * cos(thetaRadian);
+    }
+
+
+    // Sinon c'est l'axe Z
+
+    else
+    {
+        // Calcul des coordonnées sphériques
+
+        m_orientation.x = cos(phiRadian) * cos(thetaRadian);
+        m_orientation.y = cos(phiRadian) * sin(thetaRadian);
+        m_orientation.z = sin(phiRadian);
+    }
+
+    // Calcul du point ciblé pour OpenGL
+
+    m_View = m_Position + m_orientation;
+}
+
 
 
 void Camera::MoveCamera(float speed)
@@ -66,11 +197,26 @@ void Camera::MoveCamera(float speed)
 
 	// Get our view vector (The direciton we are facing)
 	VectorDirection = m_View - m_Position;
+    VectorDirection = (VectorDirection * speed);
 
-	m_Position.x += VectorDirection.x * speed;
-	m_Position.z += VectorDirection.z * speed;
-	m_View.x += VectorDirection.x * speed;
-	m_View.z += VectorDirection.z * speed;
+	m_Position = m_Position + VectorDirection;
+	m_View = m_View + VectorDirection;
+
+}
+
+void Camera::MoveLateralCamera(float speed)
+{
+	V3f VectorDirection;// Init a vector for our view
+
+	// Get our view vector (The direciton we are facing)
+	VectorDirection = m_View - m_Position;
+	V3f Strafe = VectorDirection.Cross(m_UpVector);
+    Strafe.Normalize();
+
+    Strafe = (Strafe * speed);
+
+	m_Position = m_Position + Strafe;
+	m_View = m_View + Strafe;
 
 }
 
@@ -122,39 +268,13 @@ void Camera::UpCamera(float speed)
 	// Initialize a variable for the cross product result
 
 	// Add the strafe vector to our position
-	m_Position.y +=  speed;
-	m_View.y +=  speed;
+	m_Position.z +=  speed;
+	m_View.z +=  speed;
 
 }
 
 
-void Camera::SetCameraVision(float angleY, float angleZ)
-{
-    static float currentRotX = 0.0f;
 
-	// Here we keep track of the current rotation (for up and down) so that
-    // we can restrict the camera from doing a full 360 loop.
-    currentRotX -= angleZ;
-
-    if(currentRotX > 1.0f)
-        currentRotX = 1.0f;
-
-	else if(currentRotX < -1.0f)
-        currentRotX = -1.0f;
-	else
-	{
-		V3f ViewVector = m_View - m_Position;
-
-		V3f vAxis = ViewVector.Cross(m_UpVector);
-		vAxis.Normalize();
-
-		RotateView(angleZ, vAxis.x, vAxis.y, vAxis.z);
-	}
-
-    RotateView(angleY, 0, 1, 0);
-
-
-}
 float* Camera::getLookAt()
 {
     static float lookAt[9];

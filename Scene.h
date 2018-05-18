@@ -30,6 +30,8 @@ namespace Cagan
 
             std::vector<Object*> m_objects;
             Camera* m_camera;
+            int m_Width;
+            int m_Height;
 
 
         private:

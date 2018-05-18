@@ -5,6 +5,8 @@ using namespace Cagan;
 Scene::Scene()
 {
     m_camera = NULL;
+    m_Width = 800;
+    m_Height = 600;
 }
 
 Scene::~Scene()
@@ -47,6 +49,10 @@ void Scene::draw()
 
 void Scene::update(unsigned int ellapsed_time)
 {
+    if(m_camera != NULL){
+        m_camera->update(ellapsed_time);
+    }
+
     for (std::vector<Object*>::iterator iter = m_objects.begin(); iter != m_objects.end(); iter++) {
         (*iter)->update(ellapsed_time);
     }
@@ -61,13 +67,13 @@ void Scene::init()
 
     SDL_WM_SetCaption("SDL GL Application", NULL);
 
-    SDL_SetVideoMode(800, 600, 32, SDL_OPENGL);
+    SDL_SetVideoMode(m_Width, m_Height, 32, SDL_OPENGL);
 
     glMatrixMode( GL_PROJECTION );
 
     glLoadIdentity();
 
-    gluPerspective(70,(double)640/480,1,1000);
+    gluPerspective(70,(double)m_Width/(double)m_Height, 1, 1000);
 
     glEnable(GL_DEPTH_TEST);
 }

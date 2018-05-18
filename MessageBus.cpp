@@ -48,11 +48,11 @@ void MessageBus::notify()
 			break;
 
 		case SDL_KEYDOWN:
-			this->sendMessage(new Cagan::Message(Cagan::EventType::KEYDOWN));
+			this->sendMessage(new Cagan::MessageKeyboard(Cagan::EventType::KEYDOWN, event.key.keysym.sym));
 			break;
 
 		case SDL_KEYUP:
-			this->sendMessage(new Cagan::Message(Cagan::EventType::KEYUP));
+			this->sendMessage(new Cagan::MessageKeyboard(Cagan::EventType::KEYUP, event.key.keysym.sym));
 			break;
 
 		case SDL_QUIT:

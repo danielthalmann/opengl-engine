@@ -145,9 +145,49 @@ namespace Cagan
 
             T x;
             T y;
+
+            // Vector2D(Vector2D<T> aVector){ x = aVector.x; y = aVector.y; }
+
+            Vector2D(T X, T Y){ x = X; y = Y; }
+
+            Vector2D(){ x = 0; y = 0; }
+
+            bool isZero(){
+                if(x == 0 && y == 0){
+                    return true;
+                }else {
+                    return false;
+                }
+            }
+
+            // surcharge l'operateur -
+            Vector2D<T> operator-(Vector2D<T> aVector)
+            {
+                // Return the added vectors result.
+                return Vector2D<T>(x - aVector.x, y - aVector.y);
+            }
+
+            Vector2D<T> operator=(Vector2D<T> aVector)
+            {
+                // Return the added vectors result.
+                x = aVector.x;
+                y = aVector.y;
+                return Vector2D<T>(aVector.x, aVector.y);
+            }
+
+            void Normalize()
+            {
+                T magnitude = (T)sqrt( (x * x) + (y * y)  );
+                x /=  magnitude;
+                y /=  magnitude;
+            }
+
     };
 
     typedef Vector3D<float> V3f;
+
+    typedef Vector2D<int> V2f;
+    typedef Vector2D<int> V2i;
 
 
 }
