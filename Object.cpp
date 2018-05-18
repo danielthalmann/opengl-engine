@@ -4,7 +4,7 @@ using namespace Cagan;
 
 Object::Object()
 {
-    //ctor
+
 }
 
 Object::~Object()

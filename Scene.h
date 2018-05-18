@@ -5,7 +5,6 @@
 #include <GL/gl.h>
 #include <GL/glu.h>
 
-
 #include <vector>
 
 #include "Object.h"
@@ -32,6 +31,13 @@ namespace Cagan
             Camera* m_camera;
             int m_Width;
             int m_Height;
+
+            bool m_FullScreen;
+            unsigned int m_VMFlag;
+            int m_Bpp;
+
+
+            SDL_Surface *m_Screen;
 
 
         private:

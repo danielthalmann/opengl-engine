@@ -1,6 +1,8 @@
 #ifndef CONSOLE_H
 #define CONSOLE_H
 
+#include <SDL/SDL.h>
+
 #include "MessageBus.h"
 
 namespace Cagan

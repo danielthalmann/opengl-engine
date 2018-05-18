@@ -153,7 +153,7 @@ namespace Cagan
             Vector2D(){ x = 0; y = 0; }
 
             bool isZero(){
-                if(x == 0 && y == 0){
+                if(x == (T)0.0 && y == (T)0.0){
                     return true;
                 }else {
                     return false;
@@ -186,7 +186,7 @@ namespace Cagan
 
     typedef Vector3D<float> V3f;
 
-    typedef Vector2D<int> V2f;
+    typedef Vector2D<float> V2f;
     typedef Vector2D<int> V2i;
 
 

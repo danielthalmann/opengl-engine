@@ -7,7 +7,7 @@ const float M_PI = 3.14;
 
 Camera::Camera(MessageBus* messageBus) : IMessageReceiver(messageBus)
 {
-	m_Position = V3f(1.0, 1.0, 1.0);
+
 	m_View =     V3f(0.0, 0.0, 0.0);
 	m_UpVector = V3f(0.0, 0.0, 1.0);
 
@@ -15,6 +15,9 @@ Camera::Camera(MessageBus* messageBus) : IMessageReceiver(messageBus)
     m_Down = false;
     m_Left = false;
     m_Right = false;
+
+    m_Climb = false;
+    m_Crouch = false;
 
     m_CaptureMouse = false;
 
@@ -33,6 +36,7 @@ Camera::~Camera()
 
 void Camera::update(unsigned int ellapsed_time)
 {
+    /*
     if(m_Up){
         MoveCamera(m_speed * ellapsed_time);
     }
@@ -45,10 +49,37 @@ void Camera::update(unsigned int ellapsed_time)
     if(m_Right){
         MoveLateralCamera(m_speed * ellapsed_time);
     }
+ */
+    float timeSpeed = (m_speed * ellapsed_time);
+    V2f speed;
+
+    if(m_Up){
+        speed.x = timeSpeed;
+    }
+    if(m_Down){
+        speed.x = -timeSpeed;
+    }
+    if(m_Left){
+        speed.y = -timeSpeed;
+    }
+    if(m_Right){
+        speed.y = timeSpeed;
+    }
+    if(!speed.isZero()){
+        MoveCamera(speed);
+    }
+    if(m_Climb){
+        UpCamera(timeSpeed);
+    }else
+    if(m_Crouch){
+        UpCamera(-timeSpeed);
+    }
+
     if(m_CaptureMouse){
 
         V2f rotateAngle = m_mouseStartPos - m_mouseCurrentPos;
         m_mouseStartPos = m_mouseCurrentPos;
+
         if(!rotateAngle.isZero()){
             // rotateAngle.Normalize();
             // Camera::SetCameraVision(rotateAngle.x, rotateAngle.y);
@@ -77,6 +108,12 @@ void Camera::handleMessage(Message* message)
                 case SDLK_RIGHT:
                     m_Right = false;
                     break;
+                case SDLK_RCTRL:
+                    m_Crouch = false;
+                    break;
+                case SDLK_RSHIFT:
+                    m_Climb = false;
+                    break;
 			}
 			break;
 
@@ -93,6 +130,12 @@ void Camera::handleMessage(Message* message)
                     break;
                 case SDLK_RIGHT:
                     m_Right = true;
+                    break;
+                case SDLK_RCTRL:
+                    m_Crouch = true;
+                    break;
+                case SDLK_RSHIFT:
+                    m_Climb = true;
                     break;
 			}
 			break;
@@ -129,8 +172,8 @@ void Camera::orienter(float xRel, float yRel)
 {
     // Récupération des angles
 
-    m_phi += -yRel * 0.5;
-    m_theta += -xRel * 0.5;
+    m_phi += yRel * 0.4;
+    m_theta += xRel * 0.4;
 
 
     // Limitation de l'angle phi
@@ -204,6 +247,27 @@ void Camera::MoveCamera(float speed)
 
 }
 
+void Camera::MoveCamera(V2f speed)
+{
+	V3f VectorDirection;					// Init a vector for our view
+
+	// Get our view vector (The direciton we are facing)
+	VectorDirection = m_View - m_Position;
+
+    if(speed.x != 0.0){
+        V3f Direction = (VectorDirection * speed.x);
+        m_Position = m_Position + Direction;
+        m_View = m_View + Direction;
+    }
+	if(speed.y != 0.0){
+        V3f Strafe = VectorDirection.Cross(m_UpVector);
+        Strafe.Normalize();
+        Strafe = (Strafe * speed.y);
+        m_Position = m_Position + Strafe;
+        m_View = m_View + Strafe;
+	}
+}
+
 void Camera::MoveLateralCamera(float speed)
 {
 	V3f VectorDirection;// Init a vector for our view
@@ -220,54 +284,10 @@ void Camera::MoveLateralCamera(float speed)
 
 }
 
-void Camera::StrafeCamera(float speed)
-{
-	// Strafing is quite simple if you understand what the cross product is.
-	// If you have 2 vectors (say the up vVector and the view vVector) you can
-	// use the cross product formula to get a vVector that is 90 degrees from the 2 vectors.
-	// For a better explanation on how this works, check out the OpenGL "Normals" tutorial at our site.
-	// In our new Update() function, we set the strafing vector (m_vStrafe).  Due
-	// to the fact that we need this vector for many things including the strafing
-	// movement and camera rotation (up and down), we just calculate it once.
-	//
-	// Like our MoveCamera() function, we add the strafing vector to our current position
-	// and view.  It's as simple as that.  It has already been calculated in Update().
-
-	// Initialize a variable for the cross product result
-
-	V3f VectorDirection = m_View - m_Position;
-
-	V3f m_Strafe = VectorDirection.Cross(m_UpVector);
-
-	// Normalize the strafe vector
-	m_Strafe.Normalize();
-
-	// Add the strafe vector to our position
-	m_Position.x += m_Strafe.x * speed;
-	m_Position.z += m_Strafe.z * speed;
-
-	// Add the strafe vector to our view
-	m_View.x += m_Strafe.x * speed;
-	m_View.z += m_Strafe.z * speed;
-
-}
 
 void Camera::UpCamera(float speed)
 {
-	// Strafing is quite simple if you understand what the cross product is.
-	// If you have 2 vectors (say the up vVector and the view vVector) you can
-	// use the cross product formula to get a vVector that is 90 degrees from the 2 vectors.
-	// For a better explanation on how this works, check out the OpenGL "Normals" tutorial at our site.
-	// In our new Update() function, we set the strafing vector (m_vStrafe).  Due
-	// to the fact that we need this vector for many things including the strafing
-	// movement and camera rotation (up and down), we just calculate it once.
-	//
-	// Like our MoveCamera() function, we add the strafing vector to our current position
-	// and view.  It's as simple as that.  It has already been calculated in Update().
 
-	// Initialize a variable for the cross product result
-
-	// Add the strafe vector to our position
 	m_Position.z +=  speed;
 	m_View.z +=  speed;
 
@@ -291,3 +311,4 @@ float* Camera::getLookAt()
     return lookAt;
 
 }
+

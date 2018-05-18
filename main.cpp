@@ -17,6 +17,10 @@
 #include "Cube.h"
 #include "Camera.h"
 
+using namespace Cagan;
+
+bool QuitApp = false;
+
 int main(int argc, char *argv[])
 {
     freopen( "CON", "w", stdout );
@@ -33,8 +37,6 @@ int main(int argc, char *argv[])
 
     scene->setCamera(camera);
 
-    ground->draw();
-
 //    ground->setSummitHeight(1, 1, 1.5);
 //    ground->setSummitHeight(1, 2, 2);
 
@@ -46,7 +48,7 @@ int main(int argc, char *argv[])
 
     unsigned int ellapsed_time = clock->getEllapsed();
 
-    for (;;)
+    while (!QuitApp)
     {
 
         scene->draw();

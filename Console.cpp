@@ -3,6 +3,8 @@
 
 using namespace Cagan;
 
+extern bool QuitApp;
+
 Console::Console(MessageBus* messageBus): IMessageReceiver(messageBus)
 {
     //ctor
@@ -21,6 +23,11 @@ void Console::handleMessage(Message* message)
 			break;
 		case EventType::KEYDOWN:
 			std::cout << "KEYDOWN" << ((MessageKeyboard*)message)->GetKey();
+
+			if(((MessageKeyboard*)message)->GetKey() ==SDLK_ESCAPE){
+                QuitApp = true;
+			}
+
 			break;
 		case EventType::KEYUP:
 			std::cout << "KEYUP";

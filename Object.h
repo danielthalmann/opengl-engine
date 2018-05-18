@@ -1,6 +1,8 @@
 #ifndef OBJECT_H
 #define OBJECT_H
 
+#include "vector.h"
+
 namespace Cagan
 {
 
@@ -14,6 +16,8 @@ namespace Cagan
             virtual void update(unsigned int ellapsed_time);
 
         protected:
+
+            V3f m_Position;
 
         private:
     };

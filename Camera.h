@@ -17,7 +17,7 @@ namespace Cagan
 
             void RotateView(float angle, float x, float y, float z);
             void MoveCamera(float speed);
-            void StrafeCamera(float speed);
+            void MoveCamera(V2f speed);
             void UpCamera(float speed);
             void SetCameraVision(float angleY, float angleZ);
             float* getLookAt();
@@ -28,7 +28,6 @@ namespace Cagan
 
         protected:
 
-            V3f m_Position;
             V3f m_View;
             V3f m_UpVector;
 
@@ -36,6 +35,9 @@ namespace Cagan
             bool m_Down;
             bool m_Left;
             bool m_Right;
+            bool m_Climb;
+            bool m_Crouch;
+
             bool m_CaptureMouse;
 
             float m_speed;
