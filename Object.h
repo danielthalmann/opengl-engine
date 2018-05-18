@@ -15,6 +15,7 @@ namespace Cagan
             virtual void draw(){};
             virtual void update(unsigned int ellapsed_time){};
             virtual void init(){};
+            virtual void setPosition(V3f position){ m_Position = position; };
 
         protected:
 

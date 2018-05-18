@@ -2,15 +2,16 @@
 #define CAMERA_H
 
 #include "vector.h"
-#include "MessageBus.h"
+#include "IMessageReceiver.h"
+#include "MessagePosition.h"
 #include "Object.h"
 
 namespace Cagan
 {
-    class Camera : public IMessageReceiver, public Object
+    class Camera : public Object, public IMessageReceiver
     {
         public:
-            Camera(MessageBus* messageBus);
+            Camera();
             virtual ~Camera();
 
             void handleMessage(Message* message);
@@ -22,8 +23,9 @@ namespace Cagan
             void SetCameraVision(float angleY, float angleZ);
             float* getLookAt();
             void update(unsigned int ellapsed_time);
-            void orienter(float xRel, float yRel);
+            void turnCamera(float xRel, float yRel);
             void MoveLateralCamera(float speed);
+            virtual void setPosition(V3f position);
 
 
         protected:

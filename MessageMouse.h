@@ -9,13 +9,12 @@ namespace Cagan
     class MessageMouse : public Message
     {
         public:
-            MessageMouse(EventType event, unsigned int x, unsigned int y);
-            MessageMouse(EventType event, unsigned int x, unsigned int y, unsigned int button);
-            virtual ~MessageMouse();
+            MessageMouse(EventType event, unsigned int x, unsigned int y): Message(event) { m_x = x; m_y = y; };
+            MessageMouse(EventType event, unsigned int x, unsigned int y, unsigned int button): Message(event) { m_x = x; m_y = y; m_button = button; };
 
-            unsigned int getX();
-            unsigned int getY();
-            unsigned int getButton();
+            unsigned int getX(){ return m_x; }
+            unsigned int getY(){ return m_y; }
+            unsigned int getButton(){ return m_button; }
 
         protected:
             unsigned int m_x;

@@ -5,7 +5,7 @@ using namespace Cagan;
 
 extern bool QuitApp;
 
-Console::Console(MessageBus* messageBus): IMessageReceiver(messageBus)
+Console::Console()
 {
     //ctor
 }

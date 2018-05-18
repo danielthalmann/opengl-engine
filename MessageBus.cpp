@@ -14,6 +14,7 @@ MessageBus::~MessageBus()
 
 void MessageBus::addReceiver(IMessageReceiver* messageReceiver)
 {
+    messageReceiver->setMessageBus(this);
     receivers.push_back(messageReceiver);
 }
 
@@ -24,7 +25,6 @@ void MessageBus::sendMessage(Message* message)
 
 void MessageBus::notify()
 {
-
 	//
 	// récupère en premier lieu les événements SDL
 	//

@@ -673,15 +673,15 @@
 	<GL/gl.h>
 	<GL/glu.h>
 
-1526648575 source:d:\projets\cagangames\console.cpp
+1526673484 source:d:\projets\cagangames\console.cpp
 	<iostream>
 	"Console.h"
 
-1526648039 d:\projets\cagangames\console.h
+1526673350 d:\projets\cagangames\console.h
 	<SDL/SDL.h>
-	"MessageBus.h"
+	"IMessageReceiver.h"
 
-1526626807 d:\projets\cagangames\messagebus.h
+1526675152 d:\projets\cagangames\messagebus.h
 	<functional>
 	<queue>
 	<vector>
@@ -689,6 +689,8 @@
 	"Message.h"
 	"MessageMouse.h"
 	"MessageKeyboard.h"
+	"MessagePosition.h"
+	"IMessageReceiver.h"
 
 1515600239 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl.h
 	"SDL_main.h"
@@ -880,7 +882,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1515600238 d:\projets\cagangames\message.h
+1526674364 d:\projets\cagangames\message.h
 	<string>
 
 1515600238 source:d:\projets\cagangames\context.cpp
@@ -891,7 +893,7 @@
 1515600238 source:d:\projets\cagangames\message.cpp
 	"Message.h"
 
-1526627943 source:d:\projets\cagangames\messagebus.cpp
+1526675989 source:d:\projets\cagangames\messagebus.cpp
 	"MessageBus.h"
 
 1526654245 source:d:\projets\cagangames\scene.cpp
@@ -905,7 +907,7 @@
 	"Object.h"
 	"Camera.h"
 
-1526656384 source:d:\projets\cagangames\main.cpp
+1526675487 source:d:\projets\cagangames\main.cpp
 	<cstdlib>
 	<stdlib.h>
 	<SDL/SDL.h>
@@ -926,7 +928,7 @@
 	<GL/glu.h>
 	"Object.h"
 
-1526644425 source:d:\projets\cagangames\ground.cpp
+1526678213 source:d:\projets\cagangames\ground.cpp
 	"Ground.h"
 	<iostream>
 	<math.h>
@@ -934,7 +936,7 @@
 1526503802 source:d:\projets\cagangames\messagemouse.cpp
 	"MessageMouse.h"
 
-1526503806 d:\projets\cagangames\messagemouse.h
+1526674544 d:\projets\cagangames\messagemouse.h
 	"Message.h"
 
 1526504788 source:d:\projets\cagangames\clock.cpp
@@ -943,13 +945,13 @@
 1526504803 d:\projets\cagangames\clock.h
 	<SDL/SDL.h>
 
-1526652586 d:\projets\cagangames\object.h
+1526675263 d:\projets\cagangames\object.h
 	"vector.h"
 
 1526649306 source:d:\projets\cagangames\object.cpp
 	"object.h"
 
-1526655179 source:d:\projets\cagangames\cube.cpp
+1526656816 source:d:\projets\cagangames\cube.cpp
 	"Cube.h"
 
 1526652675 d:\projets\cagangames\cube.h
@@ -958,18 +960,19 @@
 	"Object.h"
 	"sdlglutils.h"
 
-1526645039 d:\projets\cagangames\camera.h
+1526678007 d:\projets\cagangames\camera.h
 	"vector.h"
-	"MessageBus.h"
+	"IMessageReceiver.h"
+	"MessagePosition.h"
 	"Object.h"
 
 1526643690 d:\projets\cagangames\vector.h
 	<math.h>
 
-1526649335 source:d:\projets\cagangames\camera.cpp
+1526677963 source:d:\projets\cagangames\camera.cpp
 	"Camera.h"
 
-1526628010 d:\projets\cagangames\messagekeyboard.h
+1526674594 d:\projets\cagangames\messagekeyboard.h
 	<SDL/SDL.h>
 	"Message.h"
 
@@ -994,12 +997,24 @@
 	"begin_code.h"
 	"close_code.h"
 
-1526656231 d:\projets\cagangames\skybox.h
+1526676410 d:\projets\cagangames\skybox.h
 	<GL/gl.h>
 	<GL/glu.h>
+	"Camera.h"
 	"Object.h"
 	"sdlglutils.h"
 
-1526656489 source:d:\projets\cagangames\skybox.cpp
+1526678123 source:d:\projets\cagangames\skybox.cpp
 	"SkyBox.h"
+
+1526673299 d:\projets\cagangames\imessagereceiver.h
+	"MessageBus.h"
+
+1526674765 d:\projets\cagangames\messagemove.h
+	"Message.h"
+	"vector.h"
+
+1526675071 d:\projets\cagangames\messageposition.h
+	"Message.h"
+	"vector.h"
 

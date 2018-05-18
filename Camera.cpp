@@ -5,7 +5,7 @@ using namespace Cagan;
 
 const float M_PI = 3.14;
 
-Camera::Camera(MessageBus* messageBus) : IMessageReceiver(messageBus)
+Camera::Camera()
 {
     m_Position = V3f(3.0, 0.0, 0.0);
 	m_View =     V3f(0.0, 0.0, 0.0);
@@ -25,7 +25,7 @@ Camera::Camera(MessageBus* messageBus) : IMessageReceiver(messageBus)
 
     m_phi = 0.0;
     m_theta = 180.0;
-    orienter(0.0, 0.0);
+    turnCamera(0.0, 0.0);
 
 }
 
@@ -33,6 +33,11 @@ Camera::~Camera()
 {
     //dtor
 }
+
+void Camera::setPosition(V3f position){
+    m_Position = position;
+    turnCamera(0.0, 0.0);
+};
 
 void Camera::update(unsigned int ellapsed_time)
 {
@@ -83,7 +88,7 @@ void Camera::update(unsigned int ellapsed_time)
         if(!rotateAngle.isZero()){
             // rotateAngle.Normalize();
             // Camera::SetCameraVision(rotateAngle.x, rotateAngle.y);
-            Camera::orienter(rotateAngle.x, rotateAngle.y);
+            Camera::turnCamera(rotateAngle.x, rotateAngle.y);
         }
 
     }
@@ -168,7 +173,7 @@ void Camera::handleMessage(Message* message)
 }
 
 
-void Camera::orienter(float xRel, float yRel)
+void Camera::turnCamera(float xRel, float yRel)
 {
     // Récupération des angles
 
@@ -245,6 +250,8 @@ void Camera::MoveCamera(float speed)
 	m_Position = m_Position + VectorDirection;
 	m_View = m_View + VectorDirection;
 
+	m_messageBus->sendMessage(new MessagePosition(EventType::CAMERAMOVE, m_Position));
+
 }
 
 void Camera::MoveCamera(V2f speed)
@@ -266,6 +273,9 @@ void Camera::MoveCamera(V2f speed)
         m_Position = m_Position + Strafe;
         m_View = m_View + Strafe;
 	}
+
+	m_messageBus->sendMessage(new MessagePosition(EventType::CAMERAMOVE, m_Position));
+
 }
 
 void Camera::MoveLateralCamera(float speed)
@@ -282,6 +292,8 @@ void Camera::MoveLateralCamera(float speed)
 	m_Position = m_Position + Strafe;
 	m_View = m_View + Strafe;
 
+	m_messageBus->sendMessage(new MessagePosition(EventType::CAMERAMOVE, m_Position));
+
 }
 
 
@@ -290,6 +302,8 @@ void Camera::UpCamera(float speed)
 
 	m_Position.z +=  speed;
 	m_View.z +=  speed;
+
+	m_messageBus->sendMessage(new MessagePosition(EventType::CAMERAMOVE, m_Position));
 
 }
 

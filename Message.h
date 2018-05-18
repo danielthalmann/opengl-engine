@@ -10,7 +10,8 @@ namespace Cagan
 		KEYDOWN,
 		KEYUP,
 		MOUSEBUTTONDOWN,
-		MOUSEBUTTONUP
+		MOUSEBUTTONUP,
+		CAMERAMOVE,
 	};
 
 	class Message

@@ -10,12 +10,11 @@
 #include "Message.h"
 #include "MessageMouse.h"
 #include "MessageKeyboard.h"
+#include "MessagePosition.h"
 
 namespace Cagan
 {
-
 	class IMessageReceiver;
-
 	class MessageBus
 	{
 		public:
@@ -32,6 +31,7 @@ namespace Cagan
 			std::queue<Message*> messages;
 	};
 
+	/*
 	// Base class
 	class IMessageReceiver
 	{
@@ -40,6 +40,7 @@ namespace Cagan
 		  virtual void handleMessage(Message* message) = 0;
 
 	   protected:
+
 		  IMessageReceiver(MessageBus* messageBus)
 		  {
 			  m_messageBus = messageBus;
@@ -57,6 +58,10 @@ namespace Cagan
 
 
 	};
+	*/
 
 }
 #endif // MESSAGEBUS_H
+
+#include "IMessageReceiver.h"
+

@@ -29,13 +29,19 @@ int main(int argc, char *argv[])
 
 //    Cagan::Context* c = new Cagan::Context();
     Cagan::MessageBus* messageBus = new Cagan::MessageBus();
-    Cagan::Console* console = new Cagan::Console(messageBus);
+    Cagan::Console* console = new Cagan::Console();
     Cagan::Ground* ground = new Cagan::Ground(30, 30);
     Cagan::Clock* clock = new Cagan::Clock();
     Cagan::Scene* scene = new Cagan::Scene();
     Cagan::Cube* cube = new Cagan::Cube();
-    Cagan::Camera* camera = new Cagan::Camera(messageBus);
+    Cagan::Camera* camera = new Cagan::Camera();
+    camera->setPosition(V3f(3, 3, 3));
     Cagan::SkyBox* sky = new Cagan::SkyBox();
+    sky->setPosition(V3f(3, 3, 3));
+
+    messageBus->addReceiver(camera);
+    messageBus->addReceiver(console);
+    messageBus->addReceiver(sky);
 
     scene->setCamera(camera);
 

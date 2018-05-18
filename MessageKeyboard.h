@@ -11,15 +11,14 @@ namespace Cagan
     class MessageKeyboard : public Message
     {
         public:
-            MessageKeyboard(EventType event, SDLKey key);
-            virtual ~MessageKeyboard();
-
+            MessageKeyboard(EventType event, SDLKey key) : Message(event){ m_Key = key; }
+            //virtual ~MessageKeyboard(){}
             SDLKey GetKey() { return m_Key; }
 
         protected:
+            SDLKey m_Key;
 
         private:
-            SDLKey m_Key;
     };
 
 }

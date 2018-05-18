@@ -9,7 +9,7 @@ Ground::Ground(int x, int y) : Object()
     m_time = 0;
     m_width = x;
     m_height = y;
-    m_wireframe = true;
+    m_wireframe = false;
 
     /* Allocation dynamique */
     m_summits = new float* [ m_height ];
@@ -51,6 +51,10 @@ void Ground::setSummitHeight(int x, int y, float height)
  */
 void Ground::draw()
 {
+
+    glPushMatrix();
+    glPushAttrib(GL_CURRENT_BIT);
+
     if(m_wireframe){
         // Turn on wireframe mode
         glPolygonMode(GL_FRONT, GL_LINE);
@@ -93,6 +97,9 @@ void Ground::draw()
         glPolygonMode(GL_FRONT, GL_FILL);
         glPolygonMode(GL_BACK, GL_FILL);
     }
+
+    glPopAttrib();
+    glPopMatrix();
 
 }
 

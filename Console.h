@@ -3,7 +3,7 @@
 
 #include <SDL/SDL.h>
 
-#include "MessageBus.h"
+#include "IMessageReceiver.h"
 
 namespace Cagan
 {
@@ -11,7 +11,7 @@ namespace Cagan
 	class Console : public IMessageReceiver
 	{
 		public:
-			Console(MessageBus* messageBus);
+			Console();
 			virtual ~Console();
 
 			void handleMessage(Message* message);
