@@ -4,7 +4,8 @@
 #include <GL/gl.h>
 #include <GL/glu.h>
 
-#include <Object.h>
+#include "Object.h"
+#include "sdlglutils.h"
 
 namespace Cagan
 {
@@ -15,10 +16,13 @@ namespace Cagan
             virtual ~Cube();
             void draw();
             void update(unsigned int ellapsed_time);
+            void init();
 
         protected:
             float m_angleZ = 0;
             float m_angleX = 0;
+
+            GLuint m_Texture;
 
         private:
     };

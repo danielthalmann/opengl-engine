@@ -12,9 +12,10 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
-					<Add option="-Wswitch-enum" />
-					<Add option="-std=c++11" />
+					<Add option="-Wall" />
+					<Add option="-Og" />
 					<Add option="-g" />
+					<Add option="-fexceptions" />
 					<Add directory="include" />
 					<Add directory="../cagangames" />
 				</Compiler>
@@ -26,7 +27,6 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
-					<Add option="-std=c++11" />
 					<Add directory="include" />
 					<Add directory="../cagangames" />
 				</Compiler>
@@ -36,7 +36,7 @@
 			</Target>
 		</Build>
 		<Compiler>
-			<Add option="-Wall" />
+			<Add option="-std=c++11" />
 			<Add directory="SDL-1.2.15/include" />
 		</Compiler>
 		<Linker>
@@ -49,6 +49,7 @@
 			<Add library="dxguid" />
 			<Add library="glu32" />
 			<Add library="opengl32" />
+			<Add library="SDL-1.2.15/bin/SDL_image.dll" />
 			<Add directory="SDL-1.2.15/lib" />
 		</Linker>
 		<ExtraCommands>
@@ -77,9 +78,12 @@
 		<Unit filename="Object.h" />
 		<Unit filename="Scene.cpp" />
 		<Unit filename="Scene.h" />
-		<Unit filename="cb.bmp" />
+		<Unit filename="SkyBox.cpp" />
+		<Unit filename="SkyBox.h" />
 		<Unit filename="clock.cpp" />
 		<Unit filename="main.cpp" />
+		<Unit filename="sdlglutils.cpp" />
+		<Unit filename="sdlglutils.h" />
 		<Unit filename="vector.h" />
 		<Extensions>
 			<code_completion />

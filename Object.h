@@ -12,8 +12,9 @@ namespace Cagan
             Object();
             virtual ~Object();
 
-            virtual void draw();
-            virtual void update(unsigned int ellapsed_time);
+            virtual void draw(){};
+            virtual void update(unsigned int ellapsed_time){};
+            virtual void init(){};
 
         protected:
 

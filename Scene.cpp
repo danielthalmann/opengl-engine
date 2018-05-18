@@ -6,10 +6,10 @@ Scene::Scene()
 {
     m_camera = NULL;
 
-    m_Width = 1920;
-    m_Height = 1200;
+    m_Width = 1280;
+    m_Height = 720;
 
-    m_FullScreen = true;
+    m_FullScreen = false;
     m_VMFlag = 0;
     m_Bpp = 32;
 
@@ -29,6 +29,7 @@ Scene::~Scene()
 void Scene::addObject(Object* obj)
 {
     m_objects.push_back(obj);
+    obj->init();
 }
 
 void Scene::draw()
@@ -110,6 +111,10 @@ void Scene::init()
         //
         glEnable(GL_DEPTH_TEST);
 
+        //
+        // activation des textures
+        //
+        glEnable(GL_TEXTURE_2D);
 
 	} else {
 

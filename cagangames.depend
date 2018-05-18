@@ -894,10 +894,10 @@
 1526627943 source:d:\projets\cagangames\messagebus.cpp
 	"MessageBus.h"
 
-1526648602 source:d:\projets\cagangames\scene.cpp
+1526654245 source:d:\projets\cagangames\scene.cpp
 	"Scene.h"
 
-1526647858 d:\projets\cagangames\scene.h
+1526652572 d:\projets\cagangames\scene.h
 	<SDL/SDL.h>
 	<GL/gl.h>
 	<GL/glu.h>
@@ -905,7 +905,7 @@
 	"Object.h"
 	"Camera.h"
 
-1526648579 source:d:\projets\cagangames\main.cpp
+1526656384 source:d:\projets\cagangames\main.cpp
 	<cstdlib>
 	<stdlib.h>
 	<SDL/SDL.h>
@@ -919,6 +919,7 @@
 	"Scene.h"
 	"Cube.h"
 	"Camera.h"
+	"SkyBox.h"
 
 1526586697 d:\projets\cagangames\ground.h
 	<GL/gl.h>
@@ -942,19 +943,20 @@
 1526504803 d:\projets\cagangames\clock.h
 	<SDL/SDL.h>
 
-1526645037 d:\projets\cagangames\object.h
+1526652586 d:\projets\cagangames\object.h
 	"vector.h"
 
-1526644574 source:d:\projets\cagangames\object.cpp
+1526649306 source:d:\projets\cagangames\object.cpp
 	"object.h"
 
-1526587709 source:d:\projets\cagangames\cube.cpp
+1526655179 source:d:\projets\cagangames\cube.cpp
 	"Cube.h"
 
-1526587695 d:\projets\cagangames\cube.h
+1526652675 d:\projets\cagangames\cube.h
 	<GL/gl.h>
 	<GL/glu.h>
-	<Object.h>
+	"Object.h"
+	"sdlglutils.h"
 
 1526645039 d:\projets\cagangames\camera.h
 	"vector.h"
@@ -964,7 +966,7 @@
 1526643690 d:\projets\cagangames\vector.h
 	<math.h>
 
-1526644557 source:d:\projets\cagangames\camera.cpp
+1526649335 source:d:\projets\cagangames\camera.cpp
 	"Camera.h"
 
 1526628010 d:\projets\cagangames\messagekeyboard.h
@@ -973,4 +975,31 @@
 
 1526628379 source:d:\projets\cagangames\messagekeyboard.cpp
 	"MessageKeyboard.h"
+
+1526650032 d:\projets\cagangames\sdlglutils.h
+	<GL/gl.h>
+	<SDL/SDL.h>
+
+1526650697 source:d:\projets\cagangames\sdlglutils.cpp
+	"sdlglutils.h"
+	<SDL/SDL.h>
+	<SDL/SDL_image.h>
+	<GL/glu.h>
+	<cstring>
+	<cstdlib>
+
+1526650636 d:\projets\cagangames\sdl-1.2.15\include\sdl\sdl_image.h
+	"SDL.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1526656231 d:\projets\cagangames\skybox.h
+	<GL/gl.h>
+	<GL/glu.h>
+	"Object.h"
+	"sdlglutils.h"
+
+1526656489 source:d:\projets\cagangames\skybox.cpp
+	"SkyBox.h"
 

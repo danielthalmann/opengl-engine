@@ -7,7 +7,7 @@ const float M_PI = 3.14;
 
 Camera::Camera(MessageBus* messageBus) : IMessageReceiver(messageBus)
 {
-
+    m_Position = V3f(3.0, 0.0, 0.0);
 	m_View =     V3f(0.0, 0.0, 0.0);
 	m_UpVector = V3f(0.0, 0.0, 1.0);
 

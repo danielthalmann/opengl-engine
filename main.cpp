@@ -16,6 +16,7 @@
 #include "Scene.h"
 #include "Cube.h"
 #include "Camera.h"
+#include "SkyBox.h"
 
 using namespace Cagan;
 
@@ -34,6 +35,7 @@ int main(int argc, char *argv[])
     Cagan::Scene* scene = new Cagan::Scene();
     Cagan::Cube* cube = new Cagan::Cube();
     Cagan::Camera* camera = new Cagan::Camera(messageBus);
+    Cagan::SkyBox* sky = new Cagan::SkyBox();
 
     scene->setCamera(camera);
 
@@ -43,6 +45,7 @@ int main(int argc, char *argv[])
     scene->init();
     scene->addObject(ground);
     scene->addObject(cube);
+    scene->addObject(sky);
 
    // Dessiner();
 
