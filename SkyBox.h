@@ -26,7 +26,7 @@ namespace Cagan
             float m_width;
             float m_height;
 
-            GLuint m_Textures[5];
+            GLuint m_Textures[6];
 
         private:
     };

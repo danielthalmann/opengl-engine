@@ -12,7 +12,6 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
-					<Add option="-Wall" />
 					<Add option="-Og" />
 					<Add option="-g" />
 					<Add option="-fexceptions" />
@@ -66,14 +65,14 @@
 		<Unit filename="Cube.h" />
 		<Unit filename="Ground.cpp" />
 		<Unit filename="Ground.h" />
+		<Unit filename="IMessageReceiver.h" />
 		<Unit filename="Message.cpp" />
 		<Unit filename="Message.h" />
 		<Unit filename="MessageBus.cpp" />
 		<Unit filename="MessageBus.h" />
-		<Unit filename="MessageKeyboard.cpp" />
 		<Unit filename="MessageKeyboard.h" />
-		<Unit filename="MessageMouse.cpp" />
 		<Unit filename="MessageMouse.h" />
+		<Unit filename="MessagePosition.h" />
 		<Unit filename="Object.cpp" />
 		<Unit filename="Object.h" />
 		<Unit filename="Scene.cpp" />

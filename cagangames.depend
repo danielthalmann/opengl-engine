@@ -907,7 +907,7 @@
 	"Object.h"
 	"Camera.h"
 
-1526675487 source:d:\projets\cagangames\main.cpp
+1526716318 source:d:\projets\cagangames\main.cpp
 	<cstdlib>
 	<stdlib.h>
 	<SDL/SDL.h>
@@ -983,7 +983,7 @@
 	<GL/gl.h>
 	<SDL/SDL.h>
 
-1526650697 source:d:\projets\cagangames\sdlglutils.cpp
+1526718340 source:d:\projets\cagangames\sdlglutils.cpp
 	"sdlglutils.h"
 	<SDL/SDL.h>
 	<SDL/SDL_image.h>
@@ -997,14 +997,15 @@
 	"begin_code.h"
 	"close_code.h"
 
-1526676410 d:\projets\cagangames\skybox.h
+1526716381 d:\projets\cagangames\skybox.h
 	<GL/gl.h>
 	<GL/glu.h>
 	"Camera.h"
 	"Object.h"
 	"sdlglutils.h"
 
-1526678123 source:d:\projets\cagangames\skybox.cpp
+1526720846 source:d:\projets\cagangames\skybox.cpp
+	<string>
 	"SkyBox.h"
 
 1526673299 d:\projets\cagangames\imessagereceiver.h

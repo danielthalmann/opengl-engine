@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
 //    ground->setSummitHeight(1, 2, 2);
 
     scene->init();
-    scene->addObject(ground);
+    // scene->addObject(ground);
     scene->addObject(cube);
     scene->addObject(sky);
 
