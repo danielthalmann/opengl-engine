@@ -2,16 +2,63 @@
 #define VECTOR_H
 
 #include <math.h>
+#include <cstdlib>
 
 namespace Cagan
 {
+
+
+    template <class T>
+    class Vector2D
+    {
+        public:
+
+            T x;
+            T y;
+
+            // Vector2D(Vector2D<T> aVector){ x = aVector.x; y = aVector.y; }
+
+            Vector2D(T X, T Y){ x = X; y = Y; }
+
+            Vector2D(){ x = 0; y = 0; }
+
+            bool isZero(){
+                if(x == (T)0.0 && y == (T)0.0){
+                    return true;
+                }else {
+                    return false;
+                }
+            }
+
+            // surcharge l'operateur -
+            Vector2D<T> operator-(Vector2D<T> aVector)
+            {
+                // Return the added vectors result.
+                return Vector2D<T>(x - aVector.x, y - aVector.y);
+            }
+
+            Vector2D<T> operator=(Vector2D<T> aVector)
+            {
+                // Return the added vectors result.
+                x = aVector.x;
+                y = aVector.y;
+                return *this;
+            }
+
+            void Normalize()
+            {
+                T magnitude = (T)sqrt( (x * x) + (y * y)  );
+                x /=  magnitude;
+                y /=  magnitude;
+            }
+
+    };
+
 
     template <class T>
     class Vector3D
     {
         private:
-
-
 
         public:
 
@@ -137,23 +184,24 @@ namespace Cagan
 
     };
 
-
     template <class T>
-    class Vector2D
+    class Vector4D
     {
         public:
 
             T x;
             T y;
+            T z;
+            T a;
 
-            // Vector2D(Vector2D<T> aVector){ x = aVector.x; y = aVector.y; }
+            // fonction du constructeur
+            Vector4D(T X, T Y, T Z, T A){ x = X; y = Y; z = Z; a = A; }
 
-            Vector2D(T X, T Y){ x = X; y = Y; }
-
-            Vector2D(){ x = 0; y = 0; }
+            // fonction du constructeur
+            Vector4D(){ x = 0; y = 0; z = 0; a= 0; }
 
             bool isZero(){
-                if(x == (T)0.0 && y == (T)0.0){
+                if(x == (T)0.0 && y == (T)0.0 && z == (T)0.0 && a == (T)0.0){
                     return true;
                 }else {
                     return false;
@@ -161,32 +209,65 @@ namespace Cagan
             }
 
             // surcharge l'operateur -
-            Vector2D<T> operator-(Vector2D<T> aVector)
+            Vector4D<T> operator-(Vector4D<T> aVector)
             {
                 // Return the added vectors result.
-                return Vector2D<T>(x - aVector.x, y - aVector.y);
+                return Vector4D<T>(x - aVector.x, y - aVector.y, z - aVector.z, a - aVector.a);
             }
 
-            Vector2D<T> operator=(Vector2D<T> aVector)
+            Vector4D<T> operator=(Vector4D<T> aVector)
             {
                 // Return the added vectors result.
                 x = aVector.x;
                 y = aVector.y;
-                return Vector2D<T>(aVector.x, aVector.y);
+                z = aVector.z;
+                a = aVector.a;
+                return *this;
+            }
+
+            Vector4D<T> operator=(Vector3D<T> aVector)
+            {
+                // Return the added vectors result.
+                x = aVector.x;
+                y = aVector.y;
+                z = aVector.z;
+                a = (T)0;
+                return *this;
             }
 
             void Normalize()
             {
-                T magnitude = (T)sqrt( (x * x) + (y * y)  );
+                T magnitude = (T)sqrt( (x * x) + (y * y) + (z * z) + (a * a) );
                 x /=  magnitude;
                 y /=  magnitude;
+                z /=  magnitude;
+                a /=  magnitude;
+            }
+
+            T* getTable()
+            {
+                T* t;
+                t = (T*)malloc(4 * sizeof(T));
+
+                t[0] = x;
+                t[1] = y;
+                t[2] = z;
+                t[3] = a;
+
+                return t;
+
             }
 
     };
 
+
+
+    typedef Vector4D<float> V4f;
+
     typedef Vector3D<float> V3f;
 
     typedef Vector2D<float> V2f;
+
     typedef Vector2D<int> V2i;
 
 

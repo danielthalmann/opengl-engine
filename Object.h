@@ -1,6 +1,8 @@
 #ifndef OBJECT_H
 #define OBJECT_H
 
+#include "sdlglutils.h"
+
 #include "vector.h"
 
 namespace Cagan
@@ -20,6 +22,8 @@ namespace Cagan
         protected:
 
             V3f m_Position;
+
+            unsigned int m_Texture;
 
         private:
     };

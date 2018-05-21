@@ -49,6 +49,7 @@
 			<Add library="glu32" />
 			<Add library="opengl32" />
 			<Add library="SDL-1.2.15/bin/SDL_image.dll" />
+			<Add library="SDL-1.2.15/bin/libpng15-15.dll" />
 			<Add directory="SDL-1.2.15/lib" />
 		</Linker>
 		<ExtraCommands>
@@ -66,6 +67,12 @@
 		<Unit filename="Ground.cpp" />
 		<Unit filename="Ground.h" />
 		<Unit filename="IMessageReceiver.h" />
+		<Unit filename="Light.cpp" />
+		<Unit filename="Light.h" />
+		<Unit filename="Material.cpp" />
+		<Unit filename="Material.h" />
+		<Unit filename="Mesh.cpp" />
+		<Unit filename="Mesh.h" />
 		<Unit filename="Message.cpp" />
 		<Unit filename="Message.h" />
 		<Unit filename="MessageBus.cpp" />

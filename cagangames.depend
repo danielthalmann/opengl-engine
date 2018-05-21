@@ -907,7 +907,7 @@
 	"Object.h"
 	"Camera.h"
 
-1526716318 source:d:\projets\cagangames\main.cpp
+1526940034 source:d:\projets\cagangames\main.cpp
 	<cstdlib>
 	<stdlib.h>
 	<SDL/SDL.h>
@@ -922,13 +922,15 @@
 	"Cube.h"
 	"Camera.h"
 	"SkyBox.h"
+	"Light.h"
+	"Mesh.h"
 
 1526586697 d:\projets\cagangames\ground.h
 	<GL/gl.h>
 	<GL/glu.h>
 	"Object.h"
 
-1526678213 source:d:\projets\cagangames\ground.cpp
+1526937414 source:d:\projets\cagangames\ground.cpp
 	"Ground.h"
 	<iostream>
 	<math.h>
@@ -945,7 +947,8 @@
 1526504803 d:\projets\cagangames\clock.h
 	<SDL/SDL.h>
 
-1526675263 d:\projets\cagangames\object.h
+1526937370 d:\projets\cagangames\object.h
+	"sdlglutils.h"
 	"vector.h"
 
 1526649306 source:d:\projets\cagangames\object.cpp
@@ -954,11 +957,10 @@
 1526656816 source:d:\projets\cagangames\cube.cpp
 	"Cube.h"
 
-1526652675 d:\projets\cagangames\cube.h
+1526937371 d:\projets\cagangames\cube.h
 	<GL/gl.h>
 	<GL/glu.h>
 	"Object.h"
-	"sdlglutils.h"
 
 1526678007 d:\projets\cagangames\camera.h
 	"vector.h"
@@ -966,8 +968,9 @@
 	"MessagePosition.h"
 	"Object.h"
 
-1526643690 d:\projets\cagangames\vector.h
+1526940547 d:\projets\cagangames\vector.h
 	<math.h>
+	<cstdlib>
 
 1526677963 source:d:\projets\cagangames\camera.cpp
 	"Camera.h"
@@ -1018,4 +1021,29 @@
 1526675071 d:\projets\cagangames\messageposition.h
 	"Message.h"
 	"vector.h"
+
+1526926136 source:d:\projets\cagangames\material.cpp
+	"Material.h"
+
+1526935321 d:\projets\cagangames\material.h
+	<string>
+	"vector.h"
+
+1526939025 source:d:\projets\cagangames\mesh.cpp
+	"Mesh.h"
+
+1526936471 d:\projets\cagangames\mesh.h
+	<GL/gl.h>
+	<GL/glu.h>
+	<string>
+	<vector>
+	<fstream>
+	"Object.h"
+	"Material.h"
+
+1526939981 source:d:\projets\cagangames\light.cpp
+	"Light.h"
+
+1526940089 d:\projets\cagangames\light.h
+	"Object.h"
 

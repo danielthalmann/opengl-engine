@@ -17,6 +17,8 @@
 #include "Cube.h"
 #include "Camera.h"
 #include "SkyBox.h"
+#include "Light.h"
+#include "Mesh.h"
 
 using namespace Cagan;
 
@@ -27,17 +29,24 @@ int main(int argc, char *argv[])
     freopen( "CON", "w", stdout );
     freopen( "CON", "w", stderr );
 
+
+    Cagan::Scene* scene = new Cagan::Scene();
+    scene->init();
+
 //    Cagan::Context* c = new Cagan::Context();
     Cagan::MessageBus* messageBus = new Cagan::MessageBus();
     Cagan::Console* console = new Cagan::Console();
     Cagan::Ground* ground = new Cagan::Ground(30, 30);
     Cagan::Clock* clock = new Cagan::Clock();
-    Cagan::Scene* scene = new Cagan::Scene();
     Cagan::Cube* cube = new Cagan::Cube();
     Cagan::Camera* camera = new Cagan::Camera();
     camera->setPosition(V3f(3, 3, 3));
     Cagan::SkyBox* sky = new Cagan::SkyBox();
     sky->setPosition(V3f(3, 3, 3));
+    Cagan::Mesh* mesh = new Cagan::Mesh(std::string("meshs\\test2.obj"));
+    Cagan::Light* light = new Cagan::Light();
+
+    light->setPosition(V3f(6,7,8));
 
     messageBus->addReceiver(camera);
     messageBus->addReceiver(console);
@@ -48,10 +57,13 @@ int main(int argc, char *argv[])
 //    ground->setSummitHeight(1, 1, 1.5);
 //    ground->setSummitHeight(1, 2, 2);
 
-    scene->init();
-    // scene->addObject(ground);
+    scene->addObject(ground);
     scene->addObject(cube);
     scene->addObject(sky);
+    scene->addObject(mesh);
+    scene->addObject(light);
+
+
 
    // Dessiner();
 

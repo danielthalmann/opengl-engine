@@ -9,7 +9,7 @@ Ground::Ground(int x, int y) : Object()
     m_time = 0;
     m_width = x;
     m_height = y;
-    m_wireframe = false;
+    m_wireframe = true;
 
     /* Allocation dynamique */
     m_summits = new float* [ m_height ];
