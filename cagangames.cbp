@@ -82,6 +82,7 @@
 		<Unit filename="MessagePosition.h" />
 		<Unit filename="Object.cpp" />
 		<Unit filename="Object.h" />
+		<Unit filename="README.md" />
 		<Unit filename="Scene.cpp" />
 		<Unit filename="Scene.h" />
 		<Unit filename="SkyBox.cpp" />
