@@ -14,11 +14,14 @@ Scene::Scene()
     m_Bpp = 32;
 
     m_Screen = NULL;
+    m_glcontext = NULL;
 
 }
 
 Scene::~Scene()
 {
+    if(m_glcontext != NULL)
+        SDL_GL_DeleteContext(m_glcontext);
     //dtor
 }
 
@@ -53,7 +56,8 @@ void Scene::draw()
     }
 
     glFlush();
-    SDL_GL_SwapBuffers();
+
+    SDL_GL_SwapWindow(m_Window);
 
 }
 
@@ -77,52 +81,66 @@ void Scene::init()
         return;
     }
 
-    SDL_GL_SetAttribute( SDL_GL_SWAP_CONTROL, 1 );
-    SDL_GL_SetAttribute( SDL_GL_ACCELERATED_VISUAL, 1 );		// Enable hardware acceleration
+    // interval : 0 for immediate updates, 1 for updates synchronized with the vertical retrace, -1 for adaptive vsync; see Remarks
+    SDL_GL_SetSwapInterval(1);
 
     if( m_FullScreen )
 	{
-		m_VMFlag = SDL_OPENGL | SDL_FULLSCREEN;
+		m_VMFlag = SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN;
 	}
 	else
 	{
-		m_VMFlag = SDL_OPENGL;
+		m_VMFlag = SDL_WINDOW_OPENGL;
 	}
 
-	double VideoRatio = (double)m_Width/(double)m_Height;
+    m_Window = SDL_CreateWindow("SDL GL Application",
+                                    SDL_WINDOWPOS_CENTERED ,
+                                    SDL_WINDOWPOS_CENTERED ,
+                                    m_Width,
+                                    m_Height,
+                                    m_VMFlag);
 
-	if( SDL_VideoModeOK( m_Width, m_Height, m_Bpp, m_VMFlag ) != 0 )
-	{
-		if( m_Screen )
-			SDL_FreeSurface( m_Screen );
-
-        m_Screen = SDL_SetVideoMode(m_Width, m_Height, 32, m_VMFlag);
-
-        SDL_WM_SetCaption("SDL GL Application", NULL);
-
-        glMatrixMode( GL_PROJECTION );
-
-        gluPerspective(70, VideoRatio, 1, 1000);
-
-        atexit(SDL_Quit);
-
-        //
-        // active le test de profondeur
-        //
-        glEnable(GL_DEPTH_TEST);
-
-        //
-        // activation des textures
-        //
-        glEnable(GL_TEXTURE_2D);
-
-	} else {
-
-        printf("Unable to initialize video mode: (%d)x(%d)x(%d) : %s", m_Width, m_Height, m_Bpp, SDL_GetError());
+    if (m_Window == NULL) {
+        printf("Unable to initialize window : %s", SDL_GetError());
         SDL_Quit();
         return;
+    }
 
-	}
+    m_glcontext = SDL_GL_CreateContext(m_Window);
+
+    if (m_glcontext == NULL) {
+        printf("Unable to initialize openGL : %s", SDL_GetError());
+        SDL_Quit();
+        return;
+    }
+
+	double VideoRatio = (double)m_Width / (double)m_Height;
+
+    glMatrixMode( GL_PROJECTION );
+
+    gluPerspective(70, VideoRatio, 1, 1000);
+
+    atexit(SDL_Quit);
+
+    //
+    // active le test de profondeur
+    //
+    glEnable(GL_DEPTH_TEST);
+
+    //
+    // activation des textures
+    //
+    glEnable(GL_TEXTURE_2D);
+
+
+
+    //
+    // activation de la lumière
+    //
+    //glEnable(GL_LIGHTING);
+
+
+
 
 }
 

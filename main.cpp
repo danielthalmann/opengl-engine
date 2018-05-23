@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #endif
 
-#include <SDL/SDL.h>
+#include <SDL2/SDL.h>
 #include <GL/gl.h>
 #include <GL/glu.h>
 
@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
     camera->setPosition(V3f(3, 3, 3));
     Cagan::SkyBox* sky = new Cagan::SkyBox();
     sky->setPosition(V3f(3, 3, 3));
-    Cagan::Mesh* mesh = new Cagan::Mesh(std::string("meshs\\test2.obj"));
+    Cagan::Mesh* mesh = new Cagan::Mesh(std::string("meshs\\tree\\pin.obj"));
     Cagan::Light* light = new Cagan::Light();
 
     light->setPosition(V3f(6,7,8));
@@ -57,11 +57,11 @@ int main(int argc, char *argv[])
 //    ground->setSummitHeight(1, 1, 1.5);
 //    ground->setSummitHeight(1, 2, 2);
 
+    scene->addObject(light);
     scene->addObject(ground);
-    scene->addObject(cube);
+    // scene->addObject(cube);
     scene->addObject(sky);
     scene->addObject(mesh);
-    scene->addObject(light);
 
 
 

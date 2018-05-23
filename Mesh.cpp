@@ -310,9 +310,10 @@ void Mesh::draw()
     // Les textures
     glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 
-    glBindTexture(GL_TEXTURE_2D, m_Texture);
+    if(m_Texture != NULL)
+        glBindTexture(GL_TEXTURE_2D, m_Texture);
 
-    glEnableClientState(GL_COLOR_ARRAY);
+    // glEnableClientState(GL_COLOR_ARRAY);
 
 
     glVertexPointer(3,GL_FLOAT,0,vertice);
@@ -321,7 +322,7 @@ void Mesh::draw()
 
     glNormalPointer(GL_FLOAT,0,normals);
 
-    glColorPointer(4,GL_FLOAT,0,colours);
+    // glColorPointer(4,GL_FLOAT,0,colours);
 
     glDrawArrays(GL_QUADS,0,n_data);
 

@@ -1,7 +1,7 @@
 #ifndef CLOCK_H
 #define CLOCK_H
 
-#include <SDL/SDL.h>
+#include <SDL2/SDL.h>
 
 namespace Cagan
 {

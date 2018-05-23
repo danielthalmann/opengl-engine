@@ -3,8 +3,6 @@
 
 using namespace Cagan;
 
-const float M_PI = 3.14;
-
 Camera::Camera()
 {
     m_Position = V3f(3.0, 0.0, 0.0);

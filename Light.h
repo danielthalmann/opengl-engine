@@ -17,6 +17,9 @@ namespace Cagan
         protected:
 
             V4f m_Position;
+            V4f m_Ambient;
+            V4f m_Diffuse;
+            V4f m_Specular;
 
         private:
     };

@@ -1,7 +1,7 @@
 #ifndef SCENE_H
 #define SCENE_H
 
-#include <SDL/SDL.h>
+#include <SDL2/SDL.h>
 #include <GL/gl.h>
 #include <GL/glu.h>
 
@@ -38,6 +38,8 @@ namespace Cagan
 
 
             SDL_Surface *m_Screen;
+            SDL_Window* m_Window;
+            SDL_GLContext m_glcontext;
 
 
         private:

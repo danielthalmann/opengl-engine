@@ -677,15 +677,15 @@
 	<iostream>
 	"Console.h"
 
-1526673350 d:\projets\cagangames\console.h
-	<SDL/SDL.h>
+1527102839 d:\projets\cagangames\console.h
+	<SDL2/SDL.h>
 	"IMessageReceiver.h"
 
-1526675152 d:\projets\cagangames\messagebus.h
+1527102839 d:\projets\cagangames\messagebus.h
 	<functional>
 	<queue>
 	<vector>
-	<SDL/SDL.h>
+	<SDL2/SDL.h>
 	"Message.h"
 	"MessageMouse.h"
 	"MessageKeyboard.h"
@@ -896,21 +896,21 @@
 1526675989 source:d:\projets\cagangames\messagebus.cpp
 	"MessageBus.h"
 
-1526654245 source:d:\projets\cagangames\scene.cpp
+1527113673 source:d:\projets\cagangames\scene.cpp
 	"Scene.h"
 
-1526652572 d:\projets\cagangames\scene.h
-	<SDL/SDL.h>
+1527110347 d:\projets\cagangames\scene.h
+	<SDL2/SDL.h>
 	<GL/gl.h>
 	<GL/glu.h>
 	<vector>
 	"Object.h"
 	"Camera.h"
 
-1526940034 source:d:\projets\cagangames\main.cpp
+1527113815 source:d:\projets\cagangames\main.cpp
 	<cstdlib>
 	<stdlib.h>
-	<SDL/SDL.h>
+	<SDL2/SDL.h>
 	<GL/gl.h>
 	<GL/glu.h>
 	"Context.h"
@@ -944,8 +944,8 @@
 1526504788 source:d:\projets\cagangames\clock.cpp
 	"Clock.h"
 
-1526504803 d:\projets\cagangames\clock.h
-	<SDL/SDL.h>
+1527102792 d:\projets\cagangames\clock.h
+	<SDL2/SDL.h>
 
 1526937370 d:\projets\cagangames\object.h
 	"sdlglutils.h"
@@ -972,24 +972,24 @@
 	<math.h>
 	<cstdlib>
 
-1526677963 source:d:\projets\cagangames\camera.cpp
+1527110704 source:d:\projets\cagangames\camera.cpp
 	"Camera.h"
 
-1526674594 d:\projets\cagangames\messagekeyboard.h
-	<SDL/SDL.h>
+1527109165 d:\projets\cagangames\messagekeyboard.h
+	<SDL2/SDL.h>
 	"Message.h"
 
 1526628379 source:d:\projets\cagangames\messagekeyboard.cpp
 	"MessageKeyboard.h"
 
-1526650032 d:\projets\cagangames\sdlglutils.h
+1527102812 d:\projets\cagangames\sdlglutils.h
 	<GL/gl.h>
-	<SDL/SDL.h>
+	<SDL2/SDL.h>
 
-1526718340 source:d:\projets\cagangames\sdlglutils.cpp
+1527110986 source:d:\projets\cagangames\sdlglutils.cpp
 	"sdlglutils.h"
-	<SDL/SDL.h>
-	<SDL/SDL_image.h>
+	<SDL2/SDL.h>
+	<SDL2/SDL_image.h>
 	<GL/glu.h>
 	<cstring>
 	<cstdlib>
@@ -1007,7 +1007,7 @@
 	"Object.h"
 	"sdlglutils.h"
 
-1526720846 source:d:\projets\cagangames\skybox.cpp
+1527111624 source:d:\projets\cagangames\skybox.cpp
 	<string>
 	"SkyBox.h"
 
@@ -1029,7 +1029,7 @@
 	<string>
 	"vector.h"
 
-1526939025 source:d:\projets\cagangames\mesh.cpp
+1527112070 source:d:\projets\cagangames\mesh.cpp
 	"Mesh.h"
 
 1526936471 d:\projets\cagangames\mesh.h
@@ -1041,9 +1041,349 @@
 	"Object.h"
 	"Material.h"
 
-1526939981 source:d:\projets\cagangames\light.cpp
+1527113793 source:d:\projets\cagangames\light.cpp
 	"Light.h"
 
-1526940089 d:\projets\cagangames\light.h
+1527112687 d:\projets\cagangames\light.h
 	"Object.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_assert.h"
+	"SDL_atomic.h"
+	"SDL_audio.h"
+	"SDL_clipboard.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_filesystem.h"
+	"SDL_gamecontroller.h"
+	"SDL_haptic.h"
+	"SDL_hints.h"
+	"SDL_joystick.h"
+	"SDL_loadso.h"
+	"SDL_log.h"
+	"SDL_messagebox.h"
+	"SDL_mutex.h"
+	"SDL_power.h"
+	"SDL_render.h"
+	"SDL_rwops.h"
+	"SDL_shape.h"
+	"SDL_system.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_version.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<wchar.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<math.h>
+	<float.h>
+	<sal.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_config.h
+	"SDL_platform.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_platform.h
+	"AvailabilityMacros.h"
+	"TargetConditionals.h"
+	<winapifamily.h>
+	"begin_code.h"
+	"close_code.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\begin_code.h
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\close_code.h
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_assert.h
+	"SDL_config.h"
+	"begin_code.h"
+	<signal.h>
+	"close_code.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_atomic.h
+	"SDL_stdinc.h"
+	"SDL_platform.h"
+	"begin_code.h"
+	<mbarrier.h>
+	"close_code.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_atomic.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	<process.h>
+	<stdlib.h>
+	"close_code.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_clipboard.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	<intrin.h>
+	<intrin.h>
+	<altivec.h>
+	<mm3dnow.h>
+	<immintrin.h>
+	<mmintrin.h>
+	<xmmintrin.h>
+	<emmintrin.h>
+	<pmmintrin.h>
+	"begin_code.h"
+	"close_code.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_quit.h"
+	"SDL_gesture.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_pixels.h
+	"SDL_stdinc.h"
+	"SDL_endian.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_rect.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_pixels.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_surface.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_blendmode.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_blendmode.h
+	"begin_code.h"
+	"close_code.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keycode.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_keycode.h
+	"SDL_stdinc.h"
+	"SDL_scancode.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_scancode.h
+	"SDL_stdinc.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_gamecontroller.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_gesture.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_touch.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_filesystem.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_haptic.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_hints.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_log.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_messagebox.h
+	"SDL_stdinc.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_power.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_render.h
+	"SDL_stdinc.h"
+	"SDL_rect.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_shape.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_system.h
+	"SDL_stdinc.h"
+	"SDL_keyboard.h"
+	"SDL_render.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519925812 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519936452 d:\projets\cagangames\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_image.h
+	"SDL.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
 

@@ -35,25 +35,25 @@
 			</Target>
 		</Build>
 		<Compiler>
-			<Add option="-std=c++11" />
-			<Add directory="SDL-1.2.15/include" />
+			<Add option="-std=c++14" />
+			<Add directory="SDL2-2.0.8/i686-w64-mingw32/include" />
 		</Compiler>
 		<Linker>
 			<Add library="mingw32" />
-			<Add library="SDLmain" />
-			<Add library="SDL.dll" />
 			<Add library="user32" />
 			<Add library="gdi32" />
 			<Add library="winmm" />
 			<Add library="dxguid" />
 			<Add library="glu32" />
 			<Add library="opengl32" />
-			<Add library="SDL-1.2.15/bin/SDL_image.dll" />
-			<Add library="SDL-1.2.15/bin/libpng15-15.dll" />
-			<Add directory="SDL-1.2.15/lib" />
+			<Add library="SDL2main" />
+			<Add library="SDL2" />
+			<Add library="SDL2-2.0.8/i686-w64-mingw32/bin/SDL2.dll" />
+			<Add library="SDL2-2.0.8/i686-w64-mingw32/bin/SDL2_image.dll" />
+			<Add directory="SDL2-2.0.8/i686-w64-mingw32/lib" />
 		</Linker>
 		<ExtraCommands>
-			<Add after='cmd /c copy &quot;$(PROJECT_DIR)SDL-1.2.15\bin\*.dll&quot; &quot;$(PROJECT_DIR)$(TARGET_OUTPUT_DIR)&quot;' />
+			<Add after='cmd /c copy &quot;$(PROJECT_DIR)SDL2-2.0.8\i686-w64-mingw32\bin\*.dll&quot; &quot;$(PROJECT_DIR)$(TARGET_OUTPUT_DIR)&quot;' />
 		</ExtraCommands>
 		<Unit filename="Camera.cpp" />
 		<Unit filename="Camera.h" />
