@@ -6,7 +6,8 @@
 
 namespace Cagan
 {
-
+    template <class T>
+    class Vector4D;
 
     template <class T>
     class Vector2D
@@ -140,6 +141,15 @@ namespace Cagan
                 return newVector;
             }
 
+            Vector3D<T> operator=(Vector4D<T> aVector)
+            {
+                // Return the added vectors result.
+                x = aVector.x;
+                y = aVector.y;
+                z = aVector.z;
+                return *this;
+            }
+
             // surcharge l'operateur +
             Vector3D<T> operator+(Vector3D<T> aVector)
             {
@@ -149,6 +159,12 @@ namespace Cagan
 
             // surcharge l'operateur -
             Vector3D<T> operator-(Vector3D<T> aVector)
+            {
+                // Return the added vectors result.
+                return Vector3D<T>(x - aVector.x, y - aVector.y, z - aVector.z);
+            }
+
+            Vector3D<T> operator-(Vector4D<T> aVector)
             {
                 // Return the added vectors result.
                 return Vector3D<T>(x - aVector.x, y - aVector.y, z - aVector.z);
@@ -197,6 +213,8 @@ namespace Cagan
             // fonction du constructeur
             Vector4D(T X, T Y, T Z, T A){ x = X; y = Y; z = Z; a = A; }
 
+            Vector4D(T X, T Y, T Z){ x = X; y = Y; z = Z; a = (T)0; }
+
             // fonction du constructeur
             Vector4D(){ x = 0; y = 0; z = 0; a= 0; }
 
@@ -208,22 +226,6 @@ namespace Cagan
                 }
             }
 
-            // surcharge l'operateur -
-            Vector4D<T> operator-(Vector4D<T> aVector)
-            {
-                // Return the added vectors result.
-                return Vector4D<T>(x - aVector.x, y - aVector.y, z - aVector.z, a - aVector.a);
-            }
-
-            Vector4D<T> operator=(Vector4D<T> aVector)
-            {
-                // Return the added vectors result.
-                x = aVector.x;
-                y = aVector.y;
-                z = aVector.z;
-                a = aVector.a;
-                return *this;
-            }
 
             Vector4D<T> operator=(Vector3D<T> aVector)
             {
@@ -235,6 +237,42 @@ namespace Cagan
                 return *this;
             }
 
+            // surcharge l'operateur +
+            Vector4D<T> operator+(Vector3D<T> aVector)
+            {
+                // Return the added vectors result.
+                return Vector4D<T>(x + aVector.x, y + aVector.y, z + aVector.z);
+            }
+
+            // surcharge l'operateur +
+            Vector4D<T> operator+(Vector4D<T> aVector)
+            {
+                // Return the added vectors result.
+                return Vector3D<T>(x + aVector.x, y + aVector.y, z + aVector.z, a + aVector.a);
+            }
+
+            // surcharge l'operateur -
+            Vector4D<T> operator-(Vector4D<T> aVector)
+            {
+                // Return the added vectors result.
+                return Vector4D<T>(x - aVector.x, y - aVector.y, z - aVector.z, a - aVector.a);
+            }
+
+            // surcharge l'operateur *
+            Vector4D<T> operator*(Vector4D<T> aVector)
+            {
+                // Return the added vectors result.
+                return Vector4D<T>(x * aVector.x, y * aVector.y, z * aVector.z, a * aVector.a);
+            }
+
+            // surcharge l'operateur *
+            Vector4D<T> operator*(T num)
+            {
+                // Return the added vectors result.
+                return Vector4D<T>(x * num, y * num, z * num);
+            }
+
+
             void Normalize()
             {
                 T magnitude = (T)sqrt( (x * x) + (y * y) + (z * z) + (a * a) );
@@ -242,6 +280,33 @@ namespace Cagan
                 y /=  magnitude;
                 z /=  magnitude;
                 a /=  magnitude;
+            }
+
+            Vector4D<T> getNormal()
+            {
+                T magnitude = (T)sqrt( (x * x) + (y * y) + (z * z) + (a * a) );
+                return Vector4D<T>(
+                                x /=  magnitude,
+                                y /=  magnitude,
+                                z /=  magnitude,
+                                a /=  magnitude);
+            }
+
+            Vector4D<T> Cross(Vector4D<T> Vector)
+            {
+
+                Vector4D<T> newVector;
+               // The X value for the vector is:  (V1.y * V2.z) - (V1.z * V2.y)
+                newVector.x = ((y * Vector.z) - (z * Vector.y));
+
+                // The Y value for the vector is:  (V1.z * V2.x) - (V1.x * V2.z)
+                newVector.y = ((z * Vector.x) - (x * Vector.z));
+
+                // The Z value for the vector is:  (V1.x * V2.y) - (V1.y * V2.x)
+                newVector.z = ((x * Vector.y) - (y * Vector.x));
+
+                   // Return the cross product
+                return newVector;
             }
 
             T* getTable()

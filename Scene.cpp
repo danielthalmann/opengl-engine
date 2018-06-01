@@ -133,6 +133,8 @@ void Scene::init()
     glEnable(GL_TEXTURE_2D);
 
 
+    // glEnable(GL_NORMALIZE);
+
 
     //
     // activation de la lumière

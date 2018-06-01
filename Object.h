@@ -21,7 +21,10 @@ namespace Cagan
 
         protected:
 
-            V3f m_Position;
+            V4f m_Position;
+
+            float m_phi;
+            float m_theta;
 
             unsigned int m_Texture;
 

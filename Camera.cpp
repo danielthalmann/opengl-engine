@@ -5,9 +5,9 @@ using namespace Cagan;
 
 Camera::Camera()
 {
-    m_Position = V3f(3.0, 0.0, 0.0);
-	m_View =     V3f(0.0, 0.0, 0.0);
-	m_UpVector = V3f(0.0, 0.0, 1.0);
+    m_Position = V4f(3.0, 0.0, 0.0);
+	m_View =     V4f(0.0, 0.0, 0.0);
+	m_UpVector = V4f(0.0, 0.0, 1.0);
 
     m_Up = false;
     m_Down = false;

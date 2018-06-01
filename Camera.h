@@ -47,9 +47,6 @@ namespace Cagan
             V2f m_mouseStartPos;
             V2f m_mouseCurrentPos;
 
-            float m_phi;
-            float m_theta;
-
         private:
     };
 

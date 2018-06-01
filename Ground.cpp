@@ -9,7 +9,7 @@ Ground::Ground(int x, int y) : Object()
     m_time = 0;
     m_width = x;
     m_height = y;
-    m_wireframe = true;
+    m_wireframe = false;
 
     /* Allocation dynamique */
     m_summits = new float* [ m_height ];
@@ -78,13 +78,27 @@ void Ground::draw()
                 }
 //             glColor3ub(0,255,(int)m_summits[i][j]); //face verte
 
-            glVertex3d(j  ,i  ,cos(m_summits[i][j]));
-            glVertex3d(j+1,i  ,cos(m_summits[i][j+1]));
-            glVertex3d(j+1,i+1,cos(m_summits[i+1][j+1]));
 
-            glVertex3d(j  ,i  ,cos(m_summits[i][j]));
-            glVertex3d(j+1,i+1,cos(m_summits[i+1][j+1]));
-            glVertex3d(j  ,i+1,cos(m_summits[i+1][j]));
+
+            V4f v1(j  ,i  ,cos(m_summits[i][j]));
+            V4f v2(j+1,i  ,cos(m_summits[i][j+1]));
+            V4f v3(j+1,i+1,cos(m_summits[i+1][j+1]));
+            V4f v4(j  ,i+1,cos(m_summits[i+1][j]));
+
+            glVertex3f(v1.x, v1.y, v1.z);
+            glNormal3fv(v1.Cross(v3).getTable());
+            glVertex3f(v2.x, v2.y, v2.z);
+            glNormal3fv(v1.Cross(v3).getTable());
+            glVertex3f(v3.x, v3.y, v3.z);
+            glNormal3fv(v1.Cross(v3).getTable());
+
+
+            glVertex3f(v1.x, v1.y, v1.z);
+            glNormal3fv(v1.Cross(v3).getTable());
+            glVertex3f(v3.x, v3.y, v3.z);
+            glNormal3fv(v1.Cross(v3).getTable());
+            glVertex3f(v4.x, v4.y, v4.z);
+            glNormal3fv(v1.Cross(v3).getTable());
         }
     }
 
@@ -105,11 +119,13 @@ void Ground::draw()
 
 void Ground::update(unsigned int ellapsed_time)
 {
+
         /* Initialisation */
+    /*
         for (int i=0; i < m_height; i++)
             for (int j=0; j < m_width; j++)
                 m_summits[i][j] += (1.0 / 400) * ellapsed_time;
-
+*/
 
 
 }

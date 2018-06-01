@@ -12,11 +12,11 @@ namespace Cagan
             Light();
             virtual ~Light();
             virtual void draw();
+            void update(unsigned int ellapsed_time);
 
 
         protected:
 
-            V4f m_Position;
             V4f m_Ambient;
             V4f m_Diffuse;
             V4f m_Specular;
