@@ -117,7 +117,7 @@ void Ground::draw()
 
 }
 
-void Ground::update(unsigned int ellapsed_time)
+void Ground::update(__attribute__((unused)) unsigned int ellapsed_time)
 {
 
         /* Initialisation */

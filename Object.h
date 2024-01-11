@@ -15,13 +15,13 @@ namespace Cagan
             virtual ~Object();
 
             virtual void draw(){};
-            virtual void update(unsigned int ellapsed_time){};
+            virtual void update(__attribute__((unused)) unsigned int ellapsed_time){};
             virtual void init(){};
             virtual void setPosition(V3f position){ m_Position = position; };
 
         protected:
 
-            V4f m_Position;
+            V3f m_Position;
 
             float m_phi;
             float m_theta;

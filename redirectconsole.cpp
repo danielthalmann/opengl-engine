@@ -1,5 +1,7 @@
-
+#ifdef _WIN32
 #include <windows.h>
+#endif
+
 
 #ifdef __STRICT_ANSI__
 #undef __STRICT_ANSI__
@@ -12,6 +14,7 @@
 
 #include <fcntl.h>
 
+#ifdef _WIN32
 #include <io.h>
 
 #include <iostream>
@@ -26,7 +29,7 @@ using namespace std;
 
 // maximum mumber of lines the output console should have
 
-static const WORD MAX_CONSOLE_LINES = 500;
+static const double MAX_CONSOLE_LINES = 500;
 
 
 
@@ -102,6 +105,7 @@ ios::sync_with_stdio();
 
 }
 
+#endif
 //End of File
 
 

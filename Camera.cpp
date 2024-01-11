@@ -5,9 +5,9 @@ using namespace Cagan;
 
 Camera::Camera()
 {
-    m_Position = V4f(3.0, 0.0, 0.0);
-	m_View =     V4f(0.0, 0.0, 0.0);
-	m_UpVector = V4f(0.0, 0.0, 1.0);
+    m_Position = V3f(3.0, 0.0, 0.0);
+    m_View =     V3f(0.0, 0.0, 0.0);
+    m_UpVector = V3f(0.0, 0.0, 1.0);
 
     m_Up = false;
     m_Down = false;
@@ -97,8 +97,10 @@ void Camera::handleMessage(Message* message)
 {
     switch(message->getEvent())
     {
-		case EventType::KEYUP:
-			switch(((MessageKeyboard*)message)->GetKey()){
+	case EventType::KEYUP:
+
+	    switch(((MessageKeyboard*)message)->GetKey())
+	    {
                 case SDLK_UP:
                     m_Up = false;
                     break;
@@ -117,11 +119,13 @@ void Camera::handleMessage(Message* message)
                 case SDLK_RSHIFT:
                     m_Climb = false;
                     break;
-			}
-			break;
+	    }
+	    break;
+	
+	case EventType::KEYDOWN:
 
-		case EventType::KEYDOWN:
-			switch(((MessageKeyboard*)message)->GetKey()){
+	    switch(((MessageKeyboard*)message)->GetKey())
+	    {
                 case SDLK_UP:
                     m_Up = true;
                     break;
@@ -140,19 +144,20 @@ void Camera::handleMessage(Message* message)
                 case SDLK_RSHIFT:
                     m_Climb = true;
                     break;
-			}
-			break;
+		}
+		break;
 
-		case EventType::MOUSEMOTION:
-            if(m_CaptureMouse){
+	case EventType::MOUSEMOTION:
+        
+	    if(m_CaptureMouse){
 
                 m_mouseCurrentPos.x = ((MessageMouse*)message)->getX();
                 m_mouseCurrentPos.y = ((MessageMouse*)message)->getY();
             }
-			break;
+	    break;
 
-		case EventType::MOUSEBUTTONDOWN:
-		    if(((MessageMouse*)message)->getButton() == 1){
+	case EventType::MOUSEBUTTONDOWN:
+	    if(((MessageMouse*)message)->getButton() == 1){
 
                 m_mouseStartPos.x = ((MessageMouse*)message)->getX();
                 m_mouseStartPos.y = ((MessageMouse*)message)->getY();
@@ -160,13 +165,16 @@ void Camera::handleMessage(Message* message)
                 m_mouseCurrentPos.y = ((MessageMouse*)message)->getY();
 
                 m_CaptureMouse = true;
-		    }
-			break;
-		case EventType::MOUSEBUTTONUP:
-		    if(((MessageMouse*)message)->getButton() == 1){
+	    }
+	    break;
+	case EventType::MOUSEBUTTONUP:
+	    if(((MessageMouse*)message)->getButton() == 1){
                 m_CaptureMouse = false;
-		    }
-			break;
+	    }
+	    break;
+
+	default:
+	    break;
     }
 }
 

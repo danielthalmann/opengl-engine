@@ -4,7 +4,7 @@ using namespace Cagan;
 
 Light::Light()
 {
-    m_Position.y =  2.0; m_Position.x = 0.0; m_Position.z = 2.0; m_Position.a = 0.0;
+    m_Position.y =  2.0; m_Position.x = 0.0; m_Position.z = 2.0;// m_Position.a = 0.0;
     m_Ambient.y =  1.0; m_Ambient.x = 1.0; m_Ambient.z =  1.0; m_Ambient.a = 1.0;
     m_Diffuse.y =  0.0; m_Diffuse.x = 0.0; m_Diffuse.z =  0.0; m_Diffuse.a = 1.0;
     m_Specular.y =  1.0; m_Specular.x = 1.0; m_Specular.z =  1.0; m_Specular.a = 1.0;

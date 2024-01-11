@@ -291,12 +291,12 @@ std::string Mesh::get_directory(std::string s)
     return s1;
 }
 
-void Mesh::setMaterialsAndTex(std::vector<Material*>mats, unsigned int tex)
+void Mesh::setMaterialsAndTex(__attribute__((unused)) std::vector<Material*>mats, __attribute__((unused)) unsigned int tex)
 {
 
 }
 
-void Mesh::giveMaterialsAndTex(Mesh* target)
+void Mesh::giveMaterialsAndTex(__attribute__((unused)) Mesh* target)
 {
 
 }
@@ -310,7 +310,7 @@ void Mesh::draw()
     // Les textures
     glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 
-    if(m_Texture != NULL)
+    if(m_Texture != 0)
         glBindTexture(GL_TEXTURE_2D, m_Texture);
 
     glEnableClientState(GL_COLOR_ARRAY);

@@ -32,11 +32,14 @@ void Console::handleMessage(Message* message)
 		case EventType::KEYUP:
 			std::cout << "KEYUP";
 			switch(((MessageKeyboard*)message)->GetKey()){
-                case SDLK_a:
-                    std::cout << " A";
-                case SDLK_UP:
-                    std::cout << " ^";
-                break;
+       			         case SDLK_a:
+                    			std::cout << " A";
+                		break;
+				 case SDLK_UP:
+                    			std::cout << " ^";
+                		break;
+				default:
+				break;
 			}
 			break;
 		case EventType::MOUSEBUTTONDOWN:
@@ -44,6 +47,8 @@ void Console::handleMessage(Message* message)
 			break;
 		case EventType::MOUSEBUTTONUP:
 		    std::cout << "MOUSEBUTTONUP X:" << ((MessageMouse*)message)->getX() << " y:" << ((MessageMouse*)message)->getY() << " Button:" << ((MessageMouse*)message)->getButton();
+			break;
+		default:
 			break;
     };
 

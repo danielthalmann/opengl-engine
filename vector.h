@@ -23,6 +23,8 @@ namespace Cagan
 
             Vector2D(){ x = 0; y = 0; }
 
+	    Vector2D(const Vector2D<T> & aVector) { x = aVector.x; y = aVector.y; }
+
             bool isZero(){
                 if(x == (T)0.0 && y == (T)0.0){
                     return true;
@@ -32,13 +34,13 @@ namespace Cagan
             }
 
             // surcharge l'operateur -
-            Vector2D<T> operator-(Vector2D<T> aVector)
+            Vector2D<T> operator-(Vector2D<T> & aVector)
             {
                 // Return the added vectors result.
                 return Vector2D<T>(x - aVector.x, y - aVector.y);
             }
 
-            Vector2D<T> operator=(Vector2D<T> aVector)
+            Vector2D<T> operator=(Vector2D<T> & aVector)
             {
                 // Return the added vectors result.
                 x = aVector.x;
@@ -74,6 +76,14 @@ namespace Cagan
             // fonction du constructeur
             Vector3D(){ x = 0; y = 0; z = 0; }
 
+	    Vector3D(const Vector3D<T> & aVector)
+            {
+                x = aVector.x;
+                y = aVector.y;
+                z = aVector.z;
+            }
+
+
             // transform tous les vecteurs en positif
             void setToPositiveSign()
             {
@@ -84,7 +94,7 @@ namespace Cagan
 
             T* getTable()
             {
-                T m_tbl[3];
+                T* m_tbl = new T[3];
 
                 m_tbl[0] = x;
                 m_tbl[1] = y;
@@ -141,7 +151,7 @@ namespace Cagan
                 return newVector;
             }
 
-            Vector3D<T> operator=(Vector4D<T> aVector)
+            Vector3D<T> operator=(const Vector3D<T> & aVector)
             {
                 // Return the added vectors result.
                 x = aVector.x;
@@ -151,27 +161,27 @@ namespace Cagan
             }
 
             // surcharge l'operateur +
-            Vector3D<T> operator+(Vector3D<T> aVector)
+            Vector3D<T> operator+(const Vector3D<T> & aVector)
             {
                 // Return the added vectors result.
                 return Vector3D<T>(x + aVector.x, y + aVector.y, z + aVector.z);
             }
 
             // surcharge l'operateur -
-            Vector3D<T> operator-(Vector3D<T> aVector)
+            Vector3D<T> operator-(const Vector3D<T> & aVector)
             {
                 // Return the added vectors result.
                 return Vector3D<T>(x - aVector.x, y - aVector.y, z - aVector.z);
             }
 
-            Vector3D<T> operator-(Vector4D<T> aVector)
+            Vector3D<T> operator-(const Vector4D<T> & aVector)
             {
                 // Return the added vectors result.
                 return Vector3D<T>(x - aVector.x, y - aVector.y, z - aVector.z);
             }
 
             // surcharge l'operateur *
-            Vector3D<T> operator*(Vector3D<T> aVector)
+            Vector3D<T> operator*(Vector3D<T> & aVector)
             {
                 // Return the added vectors result.
                 return Vector3D<T>(x * aVector.x, y * aVector.y, z * aVector.z);
@@ -185,7 +195,7 @@ namespace Cagan
             }
 
             // surcharge l'operateur /
-            Vector3D<T> operator/(Vector3D<T> aVector)
+            Vector3D<T> operator/(Vector3D<T> & aVector)
             {
                 // Return the added vectors result.
                 return Vector3D<T>(x / aVector.x, y / aVector.y, z / aVector.z);
@@ -238,28 +248,28 @@ namespace Cagan
             }
 
             // surcharge l'operateur +
-            Vector4D<T> operator+(Vector3D<T> aVector)
+            Vector4D<T> operator+(Vector3D<T> & aVector)
             {
                 // Return the added vectors result.
                 return Vector4D<T>(x + aVector.x, y + aVector.y, z + aVector.z);
             }
 
             // surcharge l'operateur +
-            Vector4D<T> operator+(Vector4D<T> aVector)
+            Vector4D<T> operator+(Vector4D<T> & aVector)
             {
                 // Return the added vectors result.
                 return Vector3D<T>(x + aVector.x, y + aVector.y, z + aVector.z, a + aVector.a);
             }
 
             // surcharge l'operateur -
-            Vector4D<T> operator-(Vector4D<T> aVector)
+            Vector4D<T> operator-(Vector4D<T> & aVector)
             {
                 // Return the added vectors result.
                 return Vector4D<T>(x - aVector.x, y - aVector.y, z - aVector.z, a - aVector.a);
             }
 
             // surcharge l'operateur *
-            Vector4D<T> operator*(Vector4D<T> aVector)
+            Vector4D<T> operator*(Vector4D<T> & aVector)
             {
                 // Return the added vectors result.
                 return Vector4D<T>(x * aVector.x, y * aVector.y, z * aVector.z, a * aVector.a);

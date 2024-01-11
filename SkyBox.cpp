@@ -82,7 +82,7 @@ void SkyBox::draw()
 
 }
 
-void SkyBox::update(unsigned int ellapsed_time)
+void SkyBox::update(__attribute__((unused)) unsigned int ellapsed_time)
 {
 
 }
@@ -93,6 +93,8 @@ void SkyBox::handleMessage(Message* message)
     {
 		case EventType::CAMERAMOVE:
 			m_Position = ((MessagePosition*)message)->getPosition();
+			break;
+		default:
 			break;
     }
 }
