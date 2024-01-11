@@ -38,7 +38,7 @@ int main(__attribute__((unused)) int argc, __attribute__((unused)) char *argv[])
     Cagan::Console* console = new Cagan::Console();
     Cagan::Ground* ground = new Cagan::Ground(30, 30);
     Cagan::Clock* clock = new Cagan::Clock();
-//    Cagan::Cube* cube = new Cagan::Cube();
+    Cagan::Cube* cube = new Cagan::Cube();
     Cagan::Camera* camera = new Cagan::Camera();
     camera->setPosition(V3f(3, 3, 3));
     Cagan::SkyBox* sky = new Cagan::SkyBox();
@@ -59,7 +59,7 @@ int main(__attribute__((unused)) int argc, __attribute__((unused)) char *argv[])
 
     scene->addObject(light);
     scene->addObject(ground);
-    // scene->addObject(cube);
+    scene->addObject(cube);
     scene->addObject(sky);
     scene->addObject(mesh);
 
