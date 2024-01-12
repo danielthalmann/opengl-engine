@@ -16,7 +16,7 @@ Cube::~Cube()
 
 void Cube::init()
 {
-    m_Texture = loadTexture("textures\\ground.jpg");
+    m_Texture = loadTexture("textures/ground.jpg");
 }
 
 void Cube::draw()
