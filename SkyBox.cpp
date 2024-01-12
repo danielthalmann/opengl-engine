@@ -1,5 +1,6 @@
 #include <string>
 #include "SkyBox.h"
+#include <iostream>
 
 using namespace Cagan;
 
@@ -18,13 +19,15 @@ void SkyBox::init()
 {
     std::string name = ("planet");
 
+    std::cout << (std::string("textures/skybox/") + name + std::string("/front.jpg"));
 
-    m_Textures[0] = loadTexture((std::string("textures\\skybox\\") + name + std::string("\\front.jpg")).c_str());
-    m_Textures[1] = loadTexture((std::string("textures\\skybox\\") + name + std::string("\\left.jpg")).c_str());
-    m_Textures[2] = loadTexture((std::string("textures\\skybox\\") + name + std::string("\\back.jpg")).c_str());
-    m_Textures[3] = loadTexture((std::string("textures\\skybox\\") + name + std::string("\\right.jpg")).c_str());
-    m_Textures[4] = loadTexture((std::string("textures\\skybox\\") + name + std::string("\\top.jpg")).c_str());;
-    m_Textures[5] = loadTexture((std::string("textures\\skybox\\") + name + std::string("\\bottom.jpg")).c_str());
+    m_Textures[0] = loadTexture((std::string("textures/skybox/") + name + std::string("/front.jpg")).c_str());
+    m_Textures[1] = loadTexture((std::string("textures/skybox/") + name + std::string("/left.jpg")).c_str());
+    m_Textures[2] = loadTexture((std::string("textures/skybox/") + name + std::string("/back.jpg")).c_str());
+    m_Textures[3] = loadTexture((std::string("textures/skybox/") + name + std::string("/right.jpg")).c_str());
+    m_Textures[4] = loadTexture((std::string("textures/skybox/") + name + std::string("/top.jpg")).c_str());;
+    m_Textures[5] = loadTexture((std::string("textures/skybox/") + name + std::string("/bottom.jpg")).c_str());
+    
 }
 
 void SkyBox::draw()

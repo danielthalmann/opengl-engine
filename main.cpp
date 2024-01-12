@@ -43,7 +43,7 @@ int main(__attribute__((unused)) int argc, __attribute__((unused)) char *argv[])
     camera->setPosition(V3f(3, 3, 3));
     Cagan::SkyBox* sky = new Cagan::SkyBox();
     sky->setPosition(V3f(3, 3, 3));
-    Cagan::Mesh* mesh = new Cagan::Mesh(std::string("meshs\\tree\\pin.obj"));
+    Cagan::Mesh* mesh = new Cagan::Mesh(std::string("meshs/tree/pin.obj"));
     Cagan::Light* light = new Cagan::Light();
 
     light->setPosition(V3f(6,7,8));
